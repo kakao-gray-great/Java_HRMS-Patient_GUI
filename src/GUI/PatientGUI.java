@@ -78,14 +78,52 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-//		ImagePanel reservationListPanel = backgroundPanel("예약 목록");
-//		reservationListPanel.setVisible(true);
-//		
-//		JPanel reservationStatusPanel = whitePanel(reservationListPanel);
-//		
-//		lowerButton(reservationListPanel);
+		
+		/*
+		ImagePanel reservationListPanel = backgroundPanel("예약 목록");
+		reservationListPanel.setVisible(true);
+		
+		JPanel reservationStatusPanel = whitePanel(reservationListPanel);
+		
+		JLabel reservationList = new JLabel("\uC608\uC57D \uD604\uD669");
+		reservationList.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		reservationList.setBounds(23, 27, 96, 40);
+		reservationStatusPanel.add(reservationList);
+		
+		JPanel reservationStatusPanel_1 = new JPanel();
+		reservationStatusPanel_1.setBounds(23, 69, 457, 109);
+		reservationStatusPanel.add(reservationStatusPanel_1);
+		reservationStatusPanel_1.setLayout(null);
+		
+		JLabel hospitalNameLabel = new JLabel("\uC5F0\uC138\uB0B4\uACFC\uC758\uC6D0");
+		hospitalNameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 19));
+		hospitalNameLabel.setBounds(12, 10, 142, 35);
+		reservationStatusPanel_1.add(hospitalNameLabel);
+		
+		JLabel hospitalLocationLabel = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC1A1\uC6D0\uB85C 81");
+		hospitalLocationLabel.setFont(new Font("맑은 고딕", Font.BOLD, 11));
+		hospitalLocationLabel.setBounds(12, 45, 196, 26);
+		reservationStatusPanel_1.add(hospitalLocationLabel);
+		
+		JLabel hospistalSubjectLabel = new JLabel("\uB0B4\uACFC");
+		hospistalSubjectLabel.setFont(new Font("맑은 고딕", Font.BOLD, 11));
+		hospistalSubjectLabel.setBounds(12, 81, 87, 18);
+		reservationStatusPanel_1.add(hospistalSubjectLabel);
+		
+		JLabel reservationDateLabel = new JLabel("2020-11-16");
+		reservationDateLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
+		reservationDateLabel.setBounds(335, 73, 70, 26);
+		reservationStatusPanel_1.add(reservationDateLabel);
+		
+		JLabel reservationTimeLabel = new JLabel("11:00");
+		reservationTimeLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
+		reservationTimeLabel.setBounds(404, 73, 41, 26);
+		reservationStatusPanel_1.add(reservationTimeLabel);
+		lowerButton(reservationListPanel);
+		
+		*/
 		//////////////////////////////////////////////////////////////////////////////////////
-		////////////////////////////예약 목록//////////////////////////////////
+		////////////////////////////예약 접수//////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
@@ -196,7 +234,7 @@ public class PatientGUI {
 		//////////////////////////////////////////////////////////////////////////////////////
 		
 		
-		
+		/*
 		ImagePanel hospitalListPanel = backgroundPanel("병원 리스트");
 		hospitalListPanel.setVisible(true);
 		
@@ -367,38 +405,11 @@ public class PatientGUI {
 		label_7.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\closeIcon.png"));
 		label_7.setBounds(406, 0, 73, 114);
 		hospitalInfoPanel_3.add(label_7);
-		/*
-		Icon openIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\openIcon.png");
-		Icon lunchIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\lunchIcon.png");
-		Icon closeIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\closeIcon.png");
-		String[] headers = new String[] {"병원 정보", "영업 상태"};
-		Object[][] data = {{"오이비인후과", openIcon}, {"주내과의원", lunchIcon}, {"아주프라임안과", closeIcon}, {"연세내과의원", openIcon}};
-		DefaultTableModel model = new DefaultTableModel(data, headers) {
-			@SuppressWarnings("unchecked")
-			public Class getColumnClass(int column) {
-				return getValueAt(0, column).getClass();
-			}
-		};
 		
-		hospitalListTablePanel.setLayout(null);
-		hospitalListTable = new JTable(model);
-		hospitalListTable.setEnabled(false);
-		hospitalListTable.setTableHeader(null);
-		hospitalListTable.setRowHeight(150);
-		hospitalListTable.setFont(new Font("맑은 고딕", Font.BOLD, 30));
-		hospitalListTable.setAlignmentX(0);
-		hospitalListTable.setSize(480, 500);
-		hospitalListTable.setPreferredScrollableViewportSize(new Dimension(480, 500));
-		JScrollPane scrollPane = new JScrollPane(hospitalListTable);
-		scrollPane.setBounds(3, 5, 499, 502);
-		hospitalListTablePanel.add(scrollPane);
-		TableColumnModel hospitalListModels = hospitalListTable.getColumnModel();
-		hospitalListModels.getColumn(0).setPreferredWidth(420);
-		*/
 		lowerButton(hospitalListPanel);
 		
 	
-		
+		*/
 		//////////////////////////////////////////////////////////////////////////////////////
 		////////////////////////////////로그인/////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
@@ -497,6 +508,16 @@ public class PatientGUI {
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
 		
+		JLabel patientIdLabel = new JLabel("arinlove");
+		patientIdLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 27));
+		patientIdLabel.setBounds(24, 108, 142, 46);
+		backgroundPanel.add(patientIdLabel);
+		
+		JLabel patientIdDesLabel = new JLabel("\uB2D8\uC758 \uC608\uC57D \uBAA9\uB85D\uC785\uB2C8\uB2E4");
+		patientIdDesLabel.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+		patientIdDesLabel.setBounds(169, 108, 301, 46);
+		backgroundPanel.add(patientIdDesLabel);
+		
 		return backgroundPanel;
 	}
 	
@@ -507,6 +528,8 @@ public class PatientGUI {
 		whitePanel.setBounds(12, 221, 505, 557);
 		mainPanel.add(whitePanel);
 		whitePanel.setLayout(null);
+		
+		
 		
 		
 		
