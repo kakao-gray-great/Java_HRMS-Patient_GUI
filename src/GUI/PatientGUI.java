@@ -3,6 +3,7 @@ package GUI;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,7 +25,18 @@ import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.JToggleButton;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.border.CompoundBorder;
+import javax.swing.JScrollBar;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.SwingConstants;
+import javax.swing.JEditorPane;
+import javax.swing.border.TitledBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class PatientGUI {
 
@@ -66,23 +78,139 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ImagePanel hospitalListPanel = backgroundPanel();
+//		ImagePanel reservationListPanel = backgroundPanel("예약 목록");
+//		reservationListPanel.setVisible(true);
+//		
+//		JPanel reservationStatusPanel = whitePanel(reservationListPanel);
+//		
+//		lowerButton(reservationListPanel);
+		//////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////예약 목록//////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		
+		/*
+		ImagePanel reservationReceiptPanel = backgroundPanel("예약 접수");
+		reservationReceiptPanel.setVisible(false);
+		
+		
+		JLabel hospitalNameLabel = new JLabel("\uC5F0\uC138\uB0B4\uACFC\uC758\uC6D0");
+		hospitalNameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		hospitalNameLabel.setBounds(25, 106, 143, 46);
+		reservationReceiptPanel.add(hospitalNameLabel);
+		
+		JButton backListButton = new JButton("");
+		backListButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\backListIcon.png"));
+		backListButton.setBounds(391, 116, 115, 30);
+		reservationReceiptPanel.add(backListButton);
+		
+		JPanel reservationPanel = whitePanel(reservationReceiptPanel);
+		
+		JLabel seletedDateLabel = new JLabel("\uB0A0\uC9DC\uB97C \uC120\uD0DD\uD558\uC138\uC694");
+		seletedDateLabel.setBounds(12, 24, 159, 36);
+		seletedDateLabel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		reservationPanel.add(seletedDateLabel);
+		
+		JComboBox selectedYearComboBox = new JComboBox();
+		selectedYearComboBox.setBounds(12, 70, 97, 41);
+		selectedYearComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		selectedYearComboBox.setModel(new DefaultComboBoxModel(new String[] {"2020", "2021"}));
+		reservationPanel.add(selectedYearComboBox);
+		
+		JComboBox selectedMonthComboBox = new JComboBox();
+		selectedMonthComboBox.setBounds(139, 70, 97, 41);
+		selectedMonthComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		selectedMonthComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		reservationPanel.add(selectedMonthComboBox);
+		
+		JComboBox selectedDayComboBox = new JComboBox();
+		selectedDayComboBox.setBounds(265, 70, 97, 41);
+		selectedDayComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		selectedDayComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		reservationPanel.add(selectedDayComboBox);
+		
+		JLabel seletedTimeLabel = new JLabel("\uC2DC\uAC04\uC744 \uC120\uD0DD\uD558\uC138\uC694");
+		seletedTimeLabel.setBounds(12, 141, 159, 36);
+		seletedTimeLabel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		reservationPanel.add(seletedTimeLabel);
+		
+		JComboBox selectedTimeComboBox = new JComboBox();
+		selectedTimeComboBox.setBounds(12, 187, 205, 41);
+		selectedTimeComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		selectedTimeComboBox.setModel(new DefaultComboBoxModel(new String[] {"10:00", "10:30", "11:00"}));
+		reservationPanel.add(selectedTimeComboBox);
+		
+		JLabel selectedSubjectLabel = new JLabel("\uC9C4\uB8CC\uACFC\uBAA9\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694");
+		selectedSubjectLabel.setBounds(12, 264, 224, 36);
+		selectedSubjectLabel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		reservationPanel.add(selectedSubjectLabel);
+		
+		JComboBox selectedSubjectComboBox = new JComboBox();
+		selectedSubjectComboBox.setBounds(12, 310, 205, 41);
+		selectedSubjectComboBox.setModel(new DefaultComboBoxModel(new String[] {"\uB0B4\uACFC"}));
+		selectedSubjectComboBox.setFont(new Font("맑은 고딕", Font.BOLD, 19));
+		reservationPanel.add(selectedSubjectComboBox);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(12, 432, 97, 41);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"2020"}));
+		comboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		reservationPanel.add(comboBox);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(139, 432, 97, 41);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
+		comboBox_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		reservationPanel.add(comboBox_1);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(265, 432, 97, 41);
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboBox_2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
+		reservationPanel.add(comboBox_2);
+		
+		JLabel label = new JLabel("\uC99D\uC0C1\uC774 \uC5B8\uC81C\uBD80\uD130 \uB098\uD0C0\uB0AC\uB098\uC694");
+		label.setBounds(12, 390, 241, 36);
+		label.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		reservationPanel.add(label);
+		
+		JButton reservationButton = new JButton("");
+		reservationButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		reservationButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\reservationIcon.png"));
+		reservationButton.setBounds(12, 501, 481, 46);
+		reservationPanel.add(reservationButton);
+		
+		lowerButton(reservationReceiptPanel);
+		
+		*/
+		//////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////병원 리스트 보기//////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		
+		ImagePanel hospitalListPanel = backgroundPanel("병원 리스트");
 		hospitalListPanel.setVisible(true);
-		
-		JLabel hospitalListLabel = new JLabel("\uBCD1\uC6D0\uB9AC\uC2A4\uD2B8");
-		hospitalListLabel.setFont(new Font("맑은 고딕", Font.BOLD, 43));
-		hospitalListLabel.setBounds(161, 29, 215, 46);
-		hospitalListPanel.add(hospitalListLabel);
-		
-		JLabel smallNameLabel_2 = new JLabel("\uAC70\uAE34\uC5B4\uB54C");
-		smallNameLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 12));
-		smallNameLabel_2.setBounds(12, 10, 57, 15);
-		hospitalListPanel.add(smallNameLabel_2);
 		
 		JLabel areaLocationLabel = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C");
 		areaLocationLabel.setFont(new Font("맑은 고딕", Font.BOLD, 15));
 		areaLocationLabel.setBounds(44, 85, 156, 29);
 		hospitalListPanel.add(areaLocationLabel);
+		
+		String[] subjects = {"진료과목 선택", "치과", "안과", "내과", "피부과", "신경과", "비뇨기과", "산부인과", "정형외과", "소아청소년과", "재활의학과"};
+		JComboBox diagnosisComboBox = new JComboBox(subjects);
+		diagnosisComboBox.setModel(new DefaultComboBoxModel(new String[] {"\uC9C4\uB8CC\uACFC\uBAA9 \uC804\uCCB4", "\uCE58\uACFC", "\uC548\uACFC", "\uB0B4\uACFC", "\uD53C\uBD80\uACFC", "\uC2E0\uACBD\uACFC", "\uBE44\uB1E8\uAE30\uACFC", "\uC0B0\uBD80\uC778\uACFC", "\uC815\uD615\uC678\uACFC", "\uC18C\uC544\uCCAD\uC18C\uB144\uACFC", "\uC7AC\uD65C\uC758\uD559\uACFC"}));
+		diagnosisComboBox.setFont(new Font("맑은 고딕", Font.PLAIN, 12));
+		diagnosisComboBox.setBounds(393, 126, 124, 23);
+		hospitalListPanel.add(diagnosisComboBox);
 		
 		JLabel locationIconLabel = new JLabel("");
 		locationIconLabel.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\locationIcon.png"));
@@ -119,17 +247,86 @@ public class PatientGUI {
 		salesToggleLabel.setBounds(383, 93, 101, 15);
 		hospitalListPanel.add(salesToggleLabel);
 		
-		JPanel hospitalListTablePanel = new JPanel();
-		hospitalListTablePanel.setBackground(Color.WHITE);
-		hospitalListTablePanel.setForeground(Color.WHITE);
-		hospitalListTablePanel.setBounds(12, 221, 505, 550);
-		hospitalListPanel.add(hospitalListTablePanel);
+		JPanel hospitalListTablePanel = whitePanel(hospitalListPanel);
+		
+		JPanel hospitalInfoPanel_1 = new JPanel();
+		hospitalInfoPanel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_1.setBackground(Color.WHITE);
+		hospitalInfoPanel_1.setBounds(12, 10, 480, 115);
+		hospitalListTablePanel.add(hospitalInfoPanel_1);
+		hospitalInfoPanel_1.setLayout(null);
+		
+		JLabel hospitalNameLabel = new JLabel("\uC624\uC774\uBE48\uD6C4\uACFC\uC758\uC6D0");
+		hospitalNameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 22));
+		hospitalNameLabel.setBounds(12, 10, 230, 35);
+		hospitalInfoPanel_1.add(hospitalNameLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC1A1\uC6D0\uB85C 81");
+		lblNewLabel_1.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		lblNewLabel_1.setBounds(12, 41, 198, 26);
+		hospitalInfoPanel_1.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("\uC774\uBE44\uC778\uD6C4\uACFC");
+		lblNewLabel_2.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(12, 77, 69, 28);
+		hospitalInfoPanel_1.add(lblNewLabel_2);
+		
+		JLabel hospitalStatusLabel = new JLabel("");
+		hospitalStatusLabel.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\openIcon.png"));
+		hospitalStatusLabel.setBounds(406, 0, 73, 114);
+		hospitalInfoPanel_1.add(hospitalStatusLabel);
+		
+		JPanel hospitalInfoPanel_2 = new JPanel();
+		hospitalInfoPanel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_2.setBackground(Color.WHITE);
+		hospitalInfoPanel_2.setBounds(12, 135, 480, 115);
+		hospitalListTablePanel.add(hospitalInfoPanel_2);
+		
+		JPanel hospitalInfoPanel_3 = new JPanel();
+		hospitalInfoPanel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_3.setBackground(Color.WHITE);
+		hospitalInfoPanel_3.setBounds(12, 260, 480, 115);
+		hospitalListTablePanel.add(hospitalInfoPanel_3);
+		
+		JPanel hospitalInfoPanel_4 = new JPanel();
+		hospitalInfoPanel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_4.setBackground(Color.WHITE);
+		hospitalInfoPanel_4.setBounds(12, 385, 480, 115);
+		hospitalListTablePanel.add(hospitalInfoPanel_4);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(137, 510, 40, 37);
+		hospitalListTablePanel.add(btnNewButton);
+		
+		JButton button = new JButton("New button");
+		button.setBounds(189, 510, 40, 37);
+		hospitalListTablePanel.add(button);
+		
+		JButton button_1 = new JButton("New button");
+		button_1.setBounds(241, 510, 40, 37);
+		hospitalListTablePanel.add(button_1);
+		
+		JButton button_2 = new JButton("New button");
+		button_2.setBounds(293, 510, 40, 37);
+		hospitalListTablePanel.add(button_2);
 		
 		
+		/*
+		Icon openIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\openIcon.png");
+		Icon lunchIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\lunchIcon.png");
+		Icon closeIcon = new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\closeIcon.png");
 		String[] headers = new String[] {"병원 정보", "영업 상태"};
-		String[][] data = new String[][] {{"오이비인후과", "영업중"}, {"주내과의원", "점심"}, {"아주프라임안과", "휴무"}, {"연세내과의원", "영업중"}};
+		Object[][] data = {{"오이비인후과", openIcon}, {"주내과의원", lunchIcon}, {"아주프라임안과", closeIcon}, {"연세내과의원", openIcon}};
+		DefaultTableModel model = new DefaultTableModel(data, headers) {
+			@SuppressWarnings("unchecked")
+			public Class getColumnClass(int column) {
+				return getValueAt(0, column).getClass();
+			}
+		};
+		
 		hospitalListTablePanel.setLayout(null);
-		hospitalListTable = new JTable(data, headers);
+		hospitalListTable = new JTable(model);
+		hospitalListTable.setEnabled(false);
 		hospitalListTable.setTableHeader(null);
 		hospitalListTable.setRowHeight(150);
 		hospitalListTable.setFont(new Font("맑은 고딕", Font.BOLD, 30));
@@ -141,13 +338,17 @@ public class PatientGUI {
 		hospitalListTablePanel.add(scrollPane);
 		TableColumnModel hospitalListModels = hospitalListTable.getColumnModel();
 		hospitalListModels.getColumn(0).setPreferredWidth(420);
-		
+		*/
 		lowerButton(hospitalListPanel);
 		
-		//////////////////////////////////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////////////////////////
-		//////////////////////////////////////////////////////////////////////////////////////
+	
 		
+		//////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////로그인/////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////
 /*
 		ImagePanel loginPanel = backgroundPanel();
 		loginPanel.setVisible(false);
@@ -221,7 +422,7 @@ public class PatientGUI {
 		jPanel.add(informationLowerButton);
 	}
 	
-	ImagePanel backgroundPanel() {
+	ImagePanel backgroundPanel(String title) {
 		ImagePanel backgroundPanel = new ImagePanel(new ImageIcon("D:/Computer/eclipse-workspace/Java_HRMS-Patient_GUI/image/login_background.png").getImage());
 		backgroundPanel.setBounds(0, 0, 540, 879);
 		frame.setSize(backgroundPanel.getWidth() + 16, backgroundPanel.getHeight());
@@ -230,7 +431,29 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		backgroundPanel.setLayout(null);
 		
+		JLabel titleLabel = new JLabel("  \uC608\uC57D \uBAA9\uB85D");
+		titleLabel.setFont(new Font("맑은 고딕", Font.BOLD, 33));
+		titleLabel.setBounds(161, 29, 215, 46);
+		backgroundPanel.add(titleLabel);
+		
+		JLabel titleSmallLabel = new JLabel("\uAC70\uAE34\uC5B4\uB54C");
+		titleSmallLabel.setFont(new Font("맑은 고딕", Font.BOLD, 12));
+		titleSmallLabel.setBounds(12, 10, 57, 15);
+		backgroundPanel.add(titleSmallLabel);
+		
 		return backgroundPanel;
+	}
+	
+	JPanel whitePanel (JPanel mainPanel) {
+		JPanel whitePanel = new JPanel();
+		whitePanel.setBackground(Color.WHITE);
+		whitePanel.setForeground(Color.BLACK);
+		whitePanel.setBounds(12, 221, 505, 557);
+		mainPanel.add(whitePanel);
+		whitePanel.setLayout(null);
+		
+		/////////////////////////////////////
+		return whitePanel;
 	}
 }
 
