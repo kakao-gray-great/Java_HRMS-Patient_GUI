@@ -16,9 +16,15 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JToggleButton;
+import javax.swing.table.TableColumnModel;
 
 public class PatientGUI {
 
@@ -26,6 +32,7 @@ public class PatientGUI {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private JTextField hospitalSearchTextField;
+	private JTable hospitalListTable;
 
 	/**
 	 * Launch the application.
@@ -55,11 +62,11 @@ public class PatientGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		ImagePanel hospitalListPanel = new ImagePanel(new ImageIcon("D:/Computer/eclipse-workspace/Java_HRMS-Patient_GUI/image/login_background.png").getImage());
-		hospitalListPanel.setBounds(0, 0, 529, 879);
-		frame.getContentPane().add(hospitalListPanel);
-		hospitalListPanel.setLayout(null);
+		ImagePanel hospitalListPanel = backgroundPanel();
 		hospitalListPanel.setVisible(true);
 		
 		JLabel hospitalListLabel = new JLabel("\uBCD1\uC6D0\uB9AC\uC2A4\uD2B8");
@@ -103,7 +110,7 @@ public class PatientGUI {
 				}
 			}
 		});
-//		salesToggleButton.setPressedIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\salesToggleButtonLabel.png"));
+
 		salesToggleButton.setBounds(489, 85, 28, 27);
 		hospitalListPanel.add(salesToggleButton);
 		
@@ -112,26 +119,37 @@ public class PatientGUI {
 		salesToggleLabel.setBounds(383, 93, 101, 15);
 		hospitalListPanel.add(salesToggleLabel);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 221, 505, 495);
-		hospitalListPanel.add(panel);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel hospitalListTablePanel = new JPanel();
+		hospitalListTablePanel.setBackground(Color.WHITE);
+		hospitalListTablePanel.setForeground(Color.WHITE);
+		hospitalListTablePanel.setBounds(12, 221, 505, 550);
+		hospitalListPanel.add(hospitalListTablePanel);
+		
+		
+		String[] headers = new String[] {"병원 정보", "영업 상태"};
+		String[][] data = new String[][] {{"오이비인후과", "영업중"}, {"주내과의원", "점심"}, {"아주프라임안과", "휴무"}, {"연세내과의원", "영업중"}};
+		hospitalListTablePanel.setLayout(null);
+		hospitalListTable = new JTable(data, headers);
+		hospitalListTable.setTableHeader(null);
+		hospitalListTable.setRowHeight(150);
+		hospitalListTable.setFont(new Font("맑은 고딕", Font.BOLD, 30));
+		hospitalListTable.setAlignmentX(0);
+		hospitalListTable.setSize(480, 500);
+		hospitalListTable.setPreferredScrollableViewportSize(new Dimension(480, 500));
+		JScrollPane scrollPane = new JScrollPane(hospitalListTable);
+		scrollPane.setBounds(3, 5, 499, 502);
+		hospitalListTablePanel.add(scrollPane);
+		TableColumnModel hospitalListModels = hospitalListTable.getColumnModel();
+		hospitalListModels.getColumn(0).setPreferredWidth(420);
 		
 		lowerButton(hospitalListPanel);
 		
 		//////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////////////////////////////////
-		ImagePanel loginPanel = new ImagePanel(new ImageIcon("D:/Computer/eclipse-workspace/Java_HRMS-Patient_GUI/image/login_background.png").getImage());
-		loginPanel.setBounds(0, 0, 540, 879);
-		frame.setSize(loginPanel.getWidth() + 16, loginPanel.getHeight());
-		System.out.println(loginPanel.getWidth() + 16);
-		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(loginPanel);
-		frame.setLocationRelativeTo(null);
-		loginPanel.setLayout(null);
+		
+/*
+		ImagePanel loginPanel = backgroundPanel();
 		loginPanel.setVisible(false);
 		
 		JLabel lblNewLabel = new JLabel("    \uD658\uC601\uD569\uB2C8\uB2E4");
@@ -178,8 +196,10 @@ public class PatientGUI {
 		loginPanel.add(passwordField);
 		
 		lowerButton(loginPanel);
+		*/
 	}
 	
+	////////////////method//////////////////////
 	void lowerButton(JPanel jPanel) {
 		JButton loginHospital = new JButton("");
 		loginHospital.addActionListener(new ActionListener() {
@@ -190,15 +210,27 @@ public class PatientGUI {
 		loginHospital.setBounds(0, 787, 176, 92);
 		jPanel.add(loginHospital);
 		
-		JButton button = new JButton("New button");
-		button.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\loginReservationButton.png"));
-		button.setBounds(176, 787, 178, 92);
-		jPanel.add(button);
+		JButton reservationLowerButton = new JButton("\"new Button\"");
+		reservationLowerButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\loginReservationButton.png"));
+		reservationLowerButton.setBounds(176, 787, 178, 92);
+		jPanel.add(reservationLowerButton);
 		
-		JButton button_1 = new JButton("New button");
-		button_1.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\loginInformationButton1.png"));
-		button_1.setBounds(354, 787, 176, 92);
-		jPanel.add(button_1);
+		JButton informationLowerButton = new JButton("\"new Button\"");
+		informationLowerButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\loginInformationButton1.png"));
+		informationLowerButton.setBounds(354, 787, 176, 92);
+		jPanel.add(informationLowerButton);
+	}
+	
+	ImagePanel backgroundPanel() {
+		ImagePanel backgroundPanel = new ImagePanel(new ImageIcon("D:/Computer/eclipse-workspace/Java_HRMS-Patient_GUI/image/login_background.png").getImage());
+		backgroundPanel.setBounds(0, 0, 540, 879);
+		frame.setSize(backgroundPanel.getWidth() + 16, backgroundPanel.getHeight());
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(backgroundPanel);
+		frame.setLocationRelativeTo(null);
+		backgroundPanel.setLayout(null);
+		
+		return backgroundPanel;
 	}
 }
 
