@@ -78,21 +78,38 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		ImagePanel reservationInfomationPanel = backgroundPanel("¿¹¾à Á¤º¸");
+		reservationInfomationPanel.setVisible(true);
+		
+		JPanel reservationInfomationWhitePanel = whitePanel(reservationInfomationPanel);
+		
+		
+		lowerButton(reservationInfomationPanel);
 		
 		/*
 		ImagePanel reservationListPanel = backgroundPanel("¿¹¾à ¸ñ·Ï");
 		reservationListPanel.setVisible(true);
 		
-		JPanel reservationStatusPanel = whitePanel(reservationListPanel);
+		JPanel reservationListWhitePanel = whitePanel(reservationListPanel);
 		
 		JLabel reservationList = new JLabel("\uC608\uC57D \uD604\uD669");
 		reservationList.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
 		reservationList.setBounds(23, 27, 96, 40);
-		reservationStatusPanel.add(reservationList);
+		reservationListWhitePanel.add(reservationList);
+		
+		JLabel patientIdLabel = new JLabel("arinlove");
+		patientIdLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 27));
+		patientIdLabel.setBounds(24, 108, 142, 46);
+		reservationListPanel.add(patientIdLabel);
+		
+		JLabel patientIdDesLabel = new JLabel("\uB2D8\uC758 \uC608\uC57D \uBAA9\uB85D\uC785\uB2C8\uB2E4");
+		patientIdDesLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 24));
+		patientIdDesLabel.setBounds(169, 108, 301, 46);
+		reservationListPanel.add(patientIdDesLabel);
 		
 		JPanel reservationStatusPanel_1 = new JPanel();
 		reservationStatusPanel_1.setBounds(23, 69, 457, 109);
-		reservationStatusPanel.add(reservationStatusPanel_1);
+		reservationListWhitePanel.add(reservationStatusPanel_1);
 		reservationStatusPanel_1.setLayout(null);
 		
 		JLabel hospitalNameLabel = new JLabel("\uC5F0\uC138\uB0B4\uACFC\uC758\uC6D0");
@@ -508,15 +525,20 @@ public class PatientGUI {
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
 		
-		JLabel patientIdLabel = new JLabel("arinlove");
-		patientIdLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 27));
-		patientIdLabel.setBounds(24, 108, 142, 46);
-		backgroundPanel.add(patientIdLabel);
+		JLabel reservationHospitalNameLabel = new JLabel("\uC5F0\uC138\uB0B4\uACFC\uC758\uC6D0");
+		reservationHospitalNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 23));
+		reservationHospitalNameLabel.setBounds(68, 112, 189, 46);
+		backgroundPanel.add(reservationHospitalNameLabel);
 		
-		JLabel patientIdDesLabel = new JLabel("\uB2D8\uC758 \uC608\uC57D \uBAA9\uB85D\uC785\uB2C8\uB2E4");
-		patientIdDesLabel.setFont(new Font("¸¼Àº °íµñ", Font.PLAIN, 24));
-		patientIdDesLabel.setBounds(169, 108, 301, 46);
-		backgroundPanel.add(patientIdDesLabel);
+		JLabel reservationDateLabel = new JLabel("2020-11-16");
+		reservationDateLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		reservationDateLabel.setBounds(287, 112, 106, 46);
+		backgroundPanel.add(reservationDateLabel);
+		
+		JLabel reservationTimeLabel = new JLabel("11:00");
+		reservationTimeLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 18));
+		reservationTimeLabel.setBounds(394, 112, 63, 46);
+		backgroundPanel.add(reservationTimeLabel);
 		
 		return backgroundPanel;
 	}
@@ -529,9 +551,26 @@ public class PatientGUI {
 		mainPanel.add(whitePanel);
 		whitePanel.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("\uC5F0\uB77D\uCC98");
+		lblNewLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 27));
+		lblNewLabel.setBounds(24, 45, 93, 47);
+		whitePanel.add(lblNewLabel);
 		
+		JLabel label = new JLabel("\uC8FC\uC18C");
+		label.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 27));
+		label.setBounds(24, 135, 93, 47);
+		whitePanel.add(label);
 		
+		JLabel lblNewLabel_1 = new JLabel("010-7242-6652");
+		lblNewLabel_1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(121, 50, 197, 47);
+		whitePanel.add(lblNewLabel_1);
 		
+		JLabel label_1 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC11C\uBD80\uB85C 2123");
+		label_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 19));
+		label_1.setBounds(121, 139, 372, 47);
+		whitePanel.add(label_1);
+
 		
 		/////////////////////////////////////
 		return whitePanel;
