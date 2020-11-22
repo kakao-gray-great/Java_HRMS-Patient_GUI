@@ -746,6 +746,12 @@ public class PatientGUI {
 		hospitalNameLabel.setBounds(25, 106, 143, 46);
 		selfDiagnosisPanel.add(hospitalNameLabel);
 		
+		JLabel subjectLabel = new JLabel("\uB0B4\uACFC");
+		subjectLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 23));
+		subjectLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		subjectLabel.setBounds(176, 175, 178, 38);
+		selfDiagnosisPanel.add(subjectLabel);
+		
 		JToggleButton selfCheckPartOneButton_1 = new JToggleButton("");
 		selfCheckPartOneButton_1.setBackground(new Color(102, 102, 102));
 		selfCheckPartOneButton_1.setBounds(34, 69, 122, 52);
@@ -950,10 +956,10 @@ public class PatientGUI {
 //		passwordChangeGUI();
 //		hospitalListGUI();
 //		hospitalViewDetailGUI();
-		selfDiagnosisGUI();
+//		selfDiagnosisGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();
-//		reservationListGUI();
+		reservationListGUI();
 
 	}
 	
@@ -998,13 +1004,7 @@ public class PatientGUI {
 		titleSmallLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
-		
-		JLabel lblNewLabel = new JLabel("\uB0B4\uACFC");
-		lblNewLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 23));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(176, 175, 178, 38);
-		backgroundPanel.add(lblNewLabel);
-		
+
 		return backgroundPanel;
 	}
 	
