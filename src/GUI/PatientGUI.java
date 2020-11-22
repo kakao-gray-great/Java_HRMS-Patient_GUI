@@ -223,6 +223,76 @@ public class PatientGUI {
 		
 		lowerButton(signupPanel);
 	}
+	
+	// È¯ÀÚ °³ÀÎ Á¤º¸ 
+	void patientInformationGUI() {
+		ImagePanel patientInformationPanel = backgroundPanel("°³ÀÎÁ¤º¸");
+		patientInformationPanel.setVisible(true);
+		
+		JPanel patientInformationWhitePanel = whitePanel(patientInformationPanel);
+		
+		JLabel patientIdLabel = new JLabel("arinlove");
+		patientIdLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		patientIdLabel.setFont(new Font("Dialog", Font.BOLD, 33));
+		patientIdLabel.setBounds(133, 168, 255, 48);
+		patientInformationPanel.add(patientIdLabel);
+		
+		JPanel patientInfomationSmallPanel = new JPanel();
+		patientInfomationSmallPanel.setBackground(Color.WHITE);
+		patientInfomationSmallPanel.setForeground(Color.BLACK);
+		patientInfomationSmallPanel.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		patientInfomationSmallPanel.setBounds(12, 25, 481, 264);
+		patientInformationWhitePanel.add(patientInfomationSmallPanel);
+		patientInfomationSmallPanel.setLayout(null);
+		
+		JLabel informationNameLabel = new JLabel("\uC774\uB984");
+		informationNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 27));
+		informationNameLabel.setBounds(22, 34, 63, 47);
+		patientInfomationSmallPanel.add(informationNameLabel);
+		
+		JLabel informationPhoneNumberLabel = new JLabel("\uC804\uD654\uBC88\uD638");
+		informationPhoneNumberLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 27));
+		informationPhoneNumberLabel.setBounds(22, 140, 123, 47);
+		patientInfomationSmallPanel.add(informationPhoneNumberLabel);
+		
+		JLabel informationNameInputLabel = new JLabel("\uCD5C\uC544\uB9B0");
+		informationNameInputLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 21));
+		informationNameInputLabel.setBounds(61, 91, 72, 39);
+		patientInfomationSmallPanel.add(informationNameInputLabel);
+		
+		JLabel informationPhoneNumberInputLabel = new JLabel("010-1234-5678");
+		informationPhoneNumberInputLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 21));
+		informationPhoneNumberInputLabel.setBounds(61, 197, 165, 39);
+		patientInfomationSmallPanel.add(informationPhoneNumberInputLabel);
+		
+		JPanel patientInformationUpdatePanel = new JPanel();
+		patientInformationUpdatePanel.setForeground(Color.BLACK);
+		patientInformationUpdatePanel.setBorder(new LineBorder(Color.LIGHT_GRAY));
+		patientInformationUpdatePanel.setBackground(Color.WHITE);
+		patientInformationUpdatePanel.setBounds(12, 332, 481, 191);
+		patientInformationWhitePanel.add(patientInformationUpdatePanel);
+		patientInformationUpdatePanel.setLayout(null);
+		
+		JButton btnNewButton = new JButton("\uBE44\uBC00\uBC88\uD638 \uBCC0\uACBD");
+		btnNewButton.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 23));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBounds(12, 29, 261, 49);
+		patientInformationUpdatePanel.add(btnNewButton);
+		
+		JButton button = new JButton("\uD68C\uC6D0 \uD0C8\uD1F4");
+		button.setForeground(Color.BLACK);
+		button.setBackground(Color.WHITE);
+		button.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 23));
+		button.setBounds(12, 113, 261, 49);
+		patientInformationUpdatePanel.add(button);
+		
+		lowerButton(patientInformationPanel);
+	}
 	//º´¿ø ¸®½ºÆ®
 	void hospitalListGUI() {
 		ImagePanel hospitalListPanel = backgroundPanel("º´¿ø ¸®½ºÆ®");
@@ -603,7 +673,8 @@ public class PatientGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 //		loginGUI();
-		signUpGUI();
+//		signUpGUI();
+		patientInformationGUI();
 //		hospitalListGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();
@@ -642,17 +713,17 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		backgroundPanel.setLayout(null);
 		
-		JLabel titleLabel = new JLabel("  " + title);
+		JLabel titleLabel = new JLabel(title);
+		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 33));
-		titleLabel.setBounds(161, 29, 215, 46);
+		titleLabel.setBounds(174, 29, 178, 46);
 		backgroundPanel.add(titleLabel);
 		
 		JLabel titleSmallLabel = new JLabel("\uAC70\uAE34\uC5B4\uB54C");
 		titleSmallLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
-		
-		
+		//////////////////////////////////////
 		
 		return backgroundPanel;
 	}
