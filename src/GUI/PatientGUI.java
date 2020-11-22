@@ -120,7 +120,7 @@ public class PatientGUI {
 	
 	// 회원가입
 	void signUpGUI() {
-		ImagePanel signupPanel = backgroundPanel("환영합니다");
+		ImagePanel signupPanel = backgroundPanel("회원가입");
 		signupPanel.setVisible(true);
 		
 		JPanel backGround = new JPanel();
@@ -293,6 +293,62 @@ public class PatientGUI {
 		
 		lowerButton(patientInformationPanel);
 	}
+	
+	
+	// 비밀번호 변경
+	void passwordChangeGUI() {
+		ImagePanel passwordChangePanel = backgroundPanel("비밀번호변경");
+		passwordChangePanel.setVisible(true);
+		
+		JPanel passwordChangeWhitePanel = whitePanel(passwordChangePanel);
+		
+		
+		JLabel passwordCh = new JLabel("현재 비밀번호");
+		passwordCh.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		passwordCh.setBounds(40, 30, 162, 35);
+		passwordChangeWhitePanel.add(passwordCh);
+		
+		JPasswordField passwordFieldCh= new JPasswordField();
+		passwordFieldCh.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		passwordFieldCh.setBounds(40, 74, 400, 35);
+		passwordChangeWhitePanel.add(passwordFieldCh);
+		
+		JLabel password2Ch = new JLabel("변경할 비밀번호 ");
+		password2Ch.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		password2Ch.setBounds(40, 147, 200, 35);
+		passwordChangeWhitePanel.add(password2Ch);
+		
+		JPasswordField passwordField2Ch = new JPasswordField();
+		passwordField2Ch.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		passwordField2Ch.setBounds(40, 192, 400, 35);
+		passwordChangeWhitePanel.add(passwordField2Ch);
+		
+		JLabel password3Ch = new JLabel("비밀번호 재입력");
+		password3Ch.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		password3Ch.setBounds(40, 262, 200, 35);
+		passwordChangeWhitePanel.add(password3Ch);
+		
+		JPasswordField passwordField3Ch = new JPasswordField();
+		passwordField3Ch.setFont(new Font("맑은 고딕", Font.PLAIN, 25));
+		passwordField3Ch.setBounds(40, 307, 400, 35);
+		passwordChangeWhitePanel.add(passwordField3Ch);
+		
+		JButton cancelBt = new JButton("\uCDE8  \uC18C");
+		cancelBt.setBackground(new Color(211, 211, 211));
+		cancelBt.setFont(new Font("맑은 고딕", Font.BOLD, 23));
+		cancelBt.setBounds(40, 400, 162, 42);
+		passwordChangeWhitePanel.add(cancelBt);
+		
+		JButton changeBt = new JButton("변경하기");
+		changeBt.setBackground(new Color(211, 211, 211));
+		changeBt.setFont(new Font("맑은 고딕", Font.BOLD, 23));
+		changeBt.setBounds(278, 400, 162, 42);
+		passwordChangeWhitePanel.add(changeBt);
+		
+		lowerButton(passwordChangePanel);
+	}
+	
+	
 	//병원 리스트
 	void hospitalListGUI() {
 		ImagePanel hospitalListPanel = backgroundPanel("병원 리스트");
@@ -469,6 +525,7 @@ public class PatientGUI {
 		lowerButton(hospitalListPanel);
 	}
 	
+	// 예약 접수
 	void reservationReceiptGUI() {
 		ImagePanel reservationReceiptPanel = backgroundPanel("예약 접수");
 		reservationReceiptPanel.setVisible(true);
@@ -674,7 +731,8 @@ public class PatientGUI {
 		
 //		loginGUI();
 //		signUpGUI();
-		patientInformationGUI();
+//		patientInformationGUI();
+		passwordChangeGUI();
 //		hospitalListGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();
@@ -716,7 +774,7 @@ public class PatientGUI {
 		JLabel titleLabel = new JLabel(title);
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setFont(new Font("맑은 고딕", Font.BOLD, 33));
-		titleLabel.setBounds(174, 29, 178, 46);
+		titleLabel.setBounds(157, 29, 224, 46);
 		backgroundPanel.add(titleLabel);
 		
 		JLabel titleSmallLabel = new JLabel("\uAC70\uAE34\uC5B4\uB54C");
