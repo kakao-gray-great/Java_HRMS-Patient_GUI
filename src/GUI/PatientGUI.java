@@ -15,6 +15,7 @@ import java.awt.Image;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
@@ -37,6 +38,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
+import java.awt.SystemColor;
 
 public class PatientGUI {
 	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
@@ -525,6 +527,109 @@ public class PatientGUI {
 		lowerButton(hospitalListPanel);
 	}
 	
+	// 병원 상세보기
+	void hospitalViewDetailGUI() {
+		ImagePanel hospitalinfoPanel = backgroundPanel("병원 상세보기");
+	
+		JPanel hospitalinfoWhitePanel = whitePanel(hospitalinfoPanel);
+			
+		JLabel hospitalNameLabel = new JLabel("연세내과의원");
+		hospitalNameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 23));
+		hospitalNameLabel.setBounds(55, 175, 232, 40);
+		hospitalinfoPanel.add(hospitalNameLabel);
+		
+		JLabel lastVisitLabel = new JLabel("\uCD5C\uADFC \uBC29\uBB38");
+		lastVisitLabel.setBounds(20,10,79,35);
+		lastVisitLabel.setOpaque(true);
+		lastVisitLabel.setBackground(Color.WHITE);
+		lastVisitLabel.setFont(new Font("맑은 고딕", Font.BOLD, 18));
+		hospitalinfoWhitePanel.add(lastVisitLabel);
+		
+		JLabel lastVisitDateLabel = new JLabel("2020-11-09");
+		lastVisitDateLabel.setFont(new Font("맑은 고딕", Font.BOLD, 14));
+		lastVisitDateLabel.setBounds(101, 12, 88, 35);
+		hospitalinfoWhitePanel.add(lastVisitDateLabel);
+		
+		JLabel subjectLabel = new JLabel("내과");
+		subjectLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		subjectLabel.setBounds(20, 60, 65, 35);
+		subjectLabel.setOpaque(true);
+		subjectLabel.setBackground(SystemColor.menu);
+		subjectLabel.setFont(new Font("맑은 고딕", Font.BOLD, 23));
+		hospitalinfoWhitePanel.add(subjectLabel);
+		
+		JPanel hospitalTimePanel = new JPanel();
+		hospitalTimePanel.setBounds(20, 105, 465, 424);
+		hospitalTimePanel.setBorder(new LineBorder(Color.gray, 2));
+		hospitalTimePanel.setOpaque(true);
+		hospitalTimePanel.setBackground(Color.WHITE);
+		hospitalinfoWhitePanel.add(hospitalTimePanel);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+		hospitalTimePanel.setLayout(null);
+		
+		JLabel phoneNumberLabel = new JLabel("연락처");
+		phoneNumberLabel.setFont(new Font("맑은 고딕", Font.BOLD, 28));
+		phoneNumberLabel.setBounds(10, 20, 94, 40);
+		hospitalTimePanel.add(phoneNumberLabel);
+		
+		JLabel phoneNumberInputLabel = new JLabel("010-xxxx-xxxx");
+		phoneNumberInputLabel.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		phoneNumberInputLabel.setBounds(116, 20, 195, 40);
+		hospitalTimePanel.add(phoneNumberInputLabel);
+		
+		JLabel addressLabel = new JLabel("주소");
+		addressLabel.setFont(new Font("맑은 고딕", Font.BOLD, 28));
+		addressLabel.setBounds(10,83, 61, 40);
+		hospitalTimePanel.add(addressLabel);
+		
+		JLabel addressInfo = new JLabel("경기도 수원시 장안동 서부로 2123");
+		addressInfo.setFont(new Font("맑은 고딕", Font.BOLD, 16));
+		addressInfo.setBounds(116,83, 335, 40);
+		hospitalTimePanel.add(addressInfo);
+		
+		JLabel time = new JLabel("진료 시간");
+		time.setFont(new Font("맑은 고딕", Font.BOLD, 28));
+		time.setBounds(10,150, 131, 40);
+		hospitalTimePanel.add(time);
+		
+		JLabel timeInfo = new JLabel("월요일 진료시간 : 09:00~18:00\n");
+		timeInfo.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo.setBounds(10, 195, 430, 25);
+		hospitalTimePanel.add(timeInfo);
+		
+		JLabel timeInfo1 = new JLabel("화요일 진료시간 : 09:00~18:00\n");
+		timeInfo1.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo1.setBounds(10, 225, 430, 25);
+		hospitalTimePanel.add(timeInfo1);
+		
+		JLabel timeInfo2 = new JLabel("수요일 진료시간 : 09:00~18:00\n");
+		timeInfo2.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo2.setBounds(10, 255, 430, 25);
+		hospitalTimePanel.add(timeInfo2);
+		
+		JLabel timeInfo3 = new JLabel("목요일 진료시간 : 09:00~18:00\n");
+		timeInfo3.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo3.setBounds(10, 285, 430, 25);
+		hospitalTimePanel.add(timeInfo3);
+		
+		JLabel timeInfo4 = new JLabel("금요일 진료시간 : 09:00~18:00\n");
+		timeInfo4.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo4.setBounds(10, 315, 430, 25);
+		hospitalTimePanel.add(timeInfo4);
+		
+		JLabel timeInfo5 = new JLabel("토요일 진료시간 : 09:00~13:00\n");
+		timeInfo5.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo5.setBounds(10, 345, 430, 25);
+		hospitalTimePanel.add(timeInfo5);
+		
+		JLabel timeInfo6 = new JLabel("일요일 진료시간 : 진료안함\n");
+		timeInfo6.setFont(new Font("맑은 고딕", Font.BOLD, 20));
+		timeInfo6.setBounds(10, 375, 430, 25);
+		hospitalTimePanel.add(timeInfo6);
+		
+		lowerButton(hospitalinfoPanel);
+	}
 	// 예약 접수
 	void reservationReceiptGUI() {
 		ImagePanel reservationReceiptPanel = backgroundPanel("예약 접수");
@@ -732,8 +837,9 @@ public class PatientGUI {
 //		loginGUI();
 //		signUpGUI();
 //		patientInformationGUI();
-		passwordChangeGUI();
+//		passwordChangeGUI();
 //		hospitalListGUI();
+		hospitalViewDetailGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();
 //		reservationListGUI();
@@ -781,7 +887,11 @@ public class PatientGUI {
 		titleSmallLabel.setFont(new Font("맑은 고딕", Font.BOLD, 12));
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
-		//////////////////////////////////////
+		
+		JButton reservationButton = new JButton("");
+		reservationButton.setBounds(363, 175, 119, 40);
+		backgroundPanel.add(reservationButton);
+		reservationButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\reservationSmallIcon.png"));
 		
 		return backgroundPanel;
 	}
@@ -793,7 +903,7 @@ public class PatientGUI {
 		whitePanel.setBounds(12, 221, 505, 557);
 		mainPanel.add(whitePanel);
 		whitePanel.setLayout(null);
-		
+	
 		return whitePanel;
 	}
 }
