@@ -1,4 +1,4 @@
-package GUI;
+package gui;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -950,7 +950,7 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-//		loginGUI();
+		loginGUI();
 //		signUpGUI();
 //		patientInformationGUI();
 //		passwordChangeGUI();
@@ -959,7 +959,7 @@ public class PatientGUI {
 //		selfDiagnosisGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();
-		reservationListGUI();
+//		reservationListGUI();
 
 	}
 	
@@ -1016,8 +1016,6 @@ public class PatientGUI {
 		mainPanel.add(whitePanel);
 		whitePanel.setLayout(null);
 		
-		
-	
 		return whitePanel;
 	}
 }
