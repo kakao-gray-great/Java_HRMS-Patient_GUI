@@ -16,7 +16,7 @@ public class SignUp {
 	
 	void signUpGUI() {
 		backgroundPanel = new BackgroundPanel();
-		ImagePanel signupPanel = backgroundPanel.background("환영합니다");
+		ImagePanel signupPanel = backgroundPanel.background("회원가입");
 		signupPanel.setVisible(true);
 		
 		JPanel backGround = new JPanel();

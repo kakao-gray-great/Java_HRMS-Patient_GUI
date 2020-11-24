@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 public class WhitePanel {
 	
-	JPanel whitePanel (JPanel mainPanel) {
+	JPanel whiteBackGround (JPanel mainPanel) {
 		JPanel whitePanel = new JPanel();
 		whitePanel.setBackground(Color.WHITE);
 		whitePanel.setForeground(Color.BLACK);
