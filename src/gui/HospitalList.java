@@ -24,7 +24,7 @@ public class HospitalList {
 	
 	void hospitalListGUI() {
 		backgroundPanel = new BackgroundPanel();
-		ImagePanel hospitalListPanel = backgroundPanel.background("병원목록");
+		ImagePanel hospitalListPanel = backgroundPanel.background("병원리스트");
 		hospitalListPanel.setVisible(true);
 
 		whitePanel = new WhitePanel();
