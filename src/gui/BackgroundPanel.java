@@ -9,7 +9,7 @@ import javax.swing.SwingConstants;
 
 public class BackgroundPanel {
 	private ImagePanel background;
-	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
+	private String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private JFrame frame = new JFrame();
 
 	ImagePanel background(String title) {
