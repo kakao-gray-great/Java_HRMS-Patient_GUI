@@ -4,20 +4,20 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Login {
 	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
-	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	
-	void loginGUI() {
-		backgroundPanel = new BackgroundPanel();
+	void loginGUI(BackgroundPanel backgroundPanel) {
 		ImagePanel loginPanel = backgroundPanel.background("환영합니다");
 		loginPanel.setVisible(true);
 		
@@ -61,12 +61,25 @@ public class Login {
 		signupInLoginLabel.setBounds(283, 634, 48, 15);
 		loginPanel.add(signupInLoginLabel);
 		
+		loginButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				String id = "abc";
+				String passwd = "abc";
+				if (id.equals(idTextField.getText()) && Arrays.equals(passwdTextField.getPassword(), passwd.toCharArray())) {
+					JOptionPane.showMessageDialog(null, "You have logged in successfully");
+					loginPanel.setVisible(false);
+					PatientInformation patientInformation = new PatientInformation(id);
+					patientInformation.patientInformationPanelGUI(backgroundPanel);
+				} else {
+					JOptionPane.showMessageDialog(null, "You failed to log in");
+				}
+			}
+		});
 		lowerButton = new LowerButton();
 		lowerButton.buttons(loginPanel);
 	}
 	
-	public static void main(String[] args) {
-		Login login = new Login();
-		login.loginGUI();
-	}
 }
