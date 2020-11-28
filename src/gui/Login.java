@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Arrays;
 
 import javax.swing.ImageIcon;
@@ -71,12 +73,22 @@ public class Login {
 				if (id.equals(idTextField.getText()) && Arrays.equals(passwdTextField.getPassword(), passwd.toCharArray())) {
 					JOptionPane.showMessageDialog(null, "You have logged in successfully");
 					loginPanel.setVisible(false);
-					PatientInformation patientInformation = new PatientInformation(id);
-					patientInformation.patientInformationPanelGUI(backgroundPanel);
+//					PatientInformation patientInformation = new PatientInformation(id);
+//					patientInformation.patientInformationPanelGUI(backgroundPanel);
+					HospitalList hospitalList = new HospitalList(backgroundPanel, id);
+					hospitalList.hospitalListGUI();
 				} else {
 					JOptionPane.showMessageDialog(null, "You failed to log in");
 				}
 			}
+		});
+		
+		signupInLoginLabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent me) {
+				loginPanel.setVisible(false);
+				SignUp signUp = new SignUp();
+				signUp.signUpGUI(backgroundPanel);
+		    }
 		});
 		lowerButton = new LowerButton();
 		lowerButton.buttons(loginPanel);
