@@ -21,16 +21,17 @@ public class BackgroundPanel {
 		frame.getContentPane().add(background);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		background.setLayout(null);
 		
 		JLabel titleLabel = new JLabel(title);
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		titleLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 33));
+		titleLabel.setFont(new Font("å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½", Font.BOLD, 33));
 		titleLabel.setBounds(157, 29, 224, 46);
 		background.add(titleLabel);
 		
 		JLabel titleSmallLabel = new JLabel("\uAC70\uAE34\uC5B4\uB54C");
-		titleSmallLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		titleSmallLabel.setFont(new Font("å ì™ì˜™å ì™ì˜™ å ì™ì˜™å ï¿½", Font.BOLD, 12));
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		background.add(titleSmallLabel);
 		
