@@ -4,6 +4,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -11,19 +14,28 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 
 public class HospitalList {
-	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
-	private BackgroundPanel backgroundPanel;
+	private static final String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
+	private static final ImageIcon openIcon = new ImageIcon(PATH + "openIcon.png");
+	private static final ImageIcon lunchIcon = new ImageIcon(PATH + "lunchIcon.png");
+	private static final ImageIcon closeIcon = new ImageIcon(PATH + "closeIcon.png");
+	
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String patientName = "";
+	private ArrayList<JPanel> panelList = new ArrayList<JPanel>();
+	private BackgroundPanel backgroundPanel;
+	
+	public HospitalList(BackgroundPanel backgroundPanel, String patientName) {
+		this.backgroundPanel = backgroundPanel;
+		this.patientName = patientName;
+	}
 	
 	void hospitalListGUI() {
-		backgroundPanel = new BackgroundPanel();
 		ImagePanel hospitalListPanel = backgroundPanel.background("º´¿ø¸®½ºÆ®");
 		hospitalListPanel.setVisible(true);
 
@@ -84,31 +96,34 @@ public class HospitalList {
 		hospitalListWhitePanel.add(hospitalInfoPanel_1);
 		hospitalInfoPanel_1.setLayout(null);
 		
-		JLabel hospitalNameLabel_1 = new JLabel("\uC624\uC774\uBE48\uD6C4\uACFC\uC758\uC6D0");
-		hospitalNameLabel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
-		hospitalNameLabel_1.setBounds(12, 10, 230, 35);
-		hospitalInfoPanel_1.add(hospitalNameLabel_1);
+		hospitalPanelContent(hospitalListPanel, hospitalInfoPanel_1, "¼ö¿øº´¿ø", "°æ±âµµ ¼ö¿ø½Ã Àå¾È±¸ ¿¬¹«µ¿", "³»°ú", lunchIcon);
 		
-		JLabel hospitalLocationPanel_1 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC1A1\uC6D0\uB85C 81");
-		hospitalLocationPanel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalLocationPanel_1.setBounds(12, 41, 198, 26);
-		hospitalInfoPanel_1.add(hospitalLocationPanel_1);
+		JPanel hospitalInfoPanel_2 = new JPanel();
+		hospitalInfoPanel_2.setLayout(null);
+		hospitalInfoPanel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_2.setBackground(Color.WHITE);
+		hospitalInfoPanel_2.setBounds(12, 135, 480, 115);
+		hospitalListWhitePanel.add(hospitalInfoPanel_2);
 		
-		JLabel hospitalSubjectLabel_1 = new JLabel("\uC774\uBE44\uC778\uD6C4\uACFC");
-		hospitalSubjectLabel_1.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalSubjectLabel_1.setBounds(12, 77, 69, 28);
-		hospitalInfoPanel_1.add(hospitalSubjectLabel_1);
+		hospitalPanelContent(hospitalListPanel, hospitalInfoPanel_2, "¾ÆÁÖ´ëº´¿ø", "°æ±âµµ ¼ö¿ø½Ã ¿µÅë±¸ Á¤ÀÚµ¿", "³»°ú", openIcon);
 		
-		JLabel hospitalStatusLabel_1 = new JLabel("");
-		hospitalStatusLabel_1.setIcon(new ImageIcon(PATH + "openIcon.png"));
-		hospitalStatusLabel_1.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_1.add(hospitalStatusLabel_1);
+		JPanel hospitalInfoPanel_3 = new JPanel();
+		hospitalInfoPanel_3.setLayout(null);
+		hospitalInfoPanel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
+		hospitalInfoPanel_3.setBackground(Color.WHITE);
+		hospitalInfoPanel_3.setBounds(12, 260, 480, 115);
+		hospitalListWhitePanel.add(hospitalInfoPanel_3);
+		
+		hospitalPanelContent(hospitalListPanel, hospitalInfoPanel_3, "¿¬¼¼´ëº´¿ø", "°æ±âµµ ¼ö¿ø½Ã ¿µÅë±¸ ±¤±³µ¿", "Á¤Çü¿Ü°ú", closeIcon);
 		
 		JPanel hospitalInfoPanel_4 = new JPanel();
+		hospitalInfoPanel_4.setLayout(null);
 		hospitalInfoPanel_4.setBorder(new LineBorder(new Color(0, 0, 0)));
 		hospitalInfoPanel_4.setBackground(Color.WHITE);
 		hospitalInfoPanel_4.setBounds(12, 385, 480, 115);
 		hospitalListWhitePanel.add(hospitalInfoPanel_4);
+		
+		hospitalPanelContent(hospitalListPanel, hospitalInfoPanel_4, "¸ÚÁøº´¿ø", "°æ±âµµ ¼ö¿ø½Ã Àå¾È±¸ ¿¬¹«µ¿", "°¡Á¤ÀÇÇÐ°ú", openIcon);
 		
 		JButton pagingButton_1 = new JButton("1");
 		pagingButton_1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
@@ -130,79 +145,40 @@ public class HospitalList {
 		pagingButton_4.setBounds(307, 506, 45, 45);
 		hospitalListWhitePanel.add(pagingButton_4);
 		
-		JPanel hospitalInfoPanel_2 = new JPanel();
-		hospitalInfoPanel_2.setLayout(null);
-		hospitalInfoPanel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
-		hospitalInfoPanel_2.setBackground(Color.WHITE);
-		hospitalInfoPanel_2.setBounds(12, 135, 480, 115);
-		hospitalListWhitePanel.add(hospitalInfoPanel_2);
-		
-		JLabel hospitalNameLabel_2 = new JLabel("\uC8FC\uB0B4\uACFC\uC758\uC6D0");
-		hospitalNameLabel_2.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
-		hospitalNameLabel_2.setBounds(12, 10, 230, 35);
-		hospitalInfoPanel_2.add(hospitalNameLabel_2);
-		
-		JLabel hospitalLocationPanel_2 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC11C\uBD80\uB85C 2112 \uC8FC\uBA54\uB514\uCE7C\uBE4C\uB529 2\uCE35");
-		hospitalLocationPanel_2.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalLocationPanel_2.setBounds(12, 41, 310, 26);
-		hospitalInfoPanel_2.add(hospitalLocationPanel_2);
-		
-		JLabel hospitalSubjectLabel_2 = new JLabel("\uB0B4\uACFC");
-		hospitalSubjectLabel_2.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalSubjectLabel_2.setBounds(12, 77, 69, 28);
-		hospitalInfoPanel_2.add(hospitalSubjectLabel_2);
-		
-		JLabel hospitalStatusLabel_2 = new JLabel("");
-		hospitalStatusLabel_2.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_2.add(hospitalStatusLabel_2);
-		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(PATH + "lunchIcon.png"));
-		label_4.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_2.add(label_4);
-		
-		JPanel hospitalInfoPanel_3 = new JPanel();
-		hospitalInfoPanel_3.setLayout(null);
-		hospitalInfoPanel_3.setBorder(new LineBorder(new Color(0, 0, 0)));
-		hospitalInfoPanel_3.setBackground(Color.WHITE);
-		hospitalInfoPanel_3.setBounds(12, 260, 480, 115);
-		hospitalListWhitePanel.add(hospitalInfoPanel_3);
-		
-		JLabel hospitalNameLabel_3 = new JLabel("\uC8FC\uB0B4\uACFC\uC758\uC6D0");
-		hospitalNameLabel_3.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
-		hospitalNameLabel_3.setBounds(12, 10, 230, 35);
-		hospitalInfoPanel_3.add(hospitalNameLabel_3);
-		
-		JLabel hospitalLocationPanel_3 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC11C\uBD80\uB85C 2112 \uC8FC\uBA54\uB514\uCE7C\uBE4C\uB529 2\uCE35");
-		hospitalLocationPanel_3.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalLocationPanel_3.setBounds(12, 41, 310, 26);
-		hospitalInfoPanel_3.add(hospitalLocationPanel_3);
-		
-		JLabel hospitalSubjectLabel_3 = new JLabel("\uB0B4\uACFC");
-		hospitalSubjectLabel_3.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
-		hospitalSubjectLabel_3.setBounds(12, 77, 69, 28);
-		hospitalInfoPanel_3.add(hospitalSubjectLabel_3);
-		
-		JLabel hospitalStatusLabel_3 = new JLabel("");
-		hospitalStatusLabel_3.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_3.add(hospitalStatusLabel_3);
-		
-		JLabel label_6 = new JLabel("");
-		label_6.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_3.add(label_6);
-		
-		JLabel label_7 = new JLabel("");
-		label_7.setIcon(new ImageIcon(PATH + "closeIcon.png"));
-		label_7.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_3.add(label_7);
-		
-		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(hospitalListPanel);
 	}
 	
-	public static void main(String[] args) {
-		HospitalList hospitalList = new HospitalList();
-		hospitalList.hospitalListGUI();
+	private void hospitalPanelContent(JPanel mainPanel, JPanel panel, String hospitalName, String hospitalAddress, String subject, ImageIcon statusIcon) {
+		JLabel hospitalNameLabel = new JLabel(hospitalName);
+		hospitalNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
+		hospitalNameLabel.setBounds(12, 10, 230, 35);
+		panel.add(hospitalNameLabel);
+		
+		JLabel hospitalLocationPanel = new JLabel(hospitalAddress);
+		hospitalLocationPanel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalLocationPanel.setBounds(12, 41, 198, 26);
+		panel.add(hospitalLocationPanel);
+		
+		JLabel hospitalSubjectLabel = new JLabel(subject);
+		hospitalSubjectLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalSubjectLabel.setBounds(12, 77, 69, 28);
+		panel.add(hospitalSubjectLabel);
+		
+		JLabel hospitalStatusLabel = new JLabel("");
+		hospitalStatusLabel.setIcon(statusIcon);
+		hospitalStatusLabel.setBounds(406, 0, 73, 114);
+		panel.add(hospitalStatusLabel);
+		
+		selectedHospital(mainPanel, backgroundPanel);
 	}
+	
+	private void selectedHospital(JPanel hospitalPanel, BackgroundPanel backgroundPanel) {
+		hospitalPanel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent me) {
+				hospitalPanel.setVisible(false);
+				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel);
+				hospitalViewDetail.hospitalViewDetailGUI();
+		    }
+		});
+	}
+	
 }
