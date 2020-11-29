@@ -36,6 +36,17 @@ public class ReservationReceipt {
 		JButton backListButton = new JButton("");
 		backListButton.setIcon(new ImageIcon(PatientApplication.PATH + "backListIcon.png"));
 		backListButton.setBounds(391, 116, 115, 30);
+		backListButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				reservationReceiptPanel.setVisible(false);
+				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel, id);
+				hospitalViewDetail.hospitalViewDetailGUI();
+				
+			}
+		});
 		reservationReceiptPanel.add(backListButton);
 		
 		whitePanel = new WhitePanel();
@@ -120,7 +131,7 @@ public class ReservationReceipt {
 		reservationButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**데이터 전송**/
-				reservationReceiptPanel.setVisible(false);
+				reservationReceiptPanel.removeAll();
 				ReservationInformation reservationInformation = new ReservationInformation(backgroundPanel, id);
 				reservationInformation.reservationInformationGUI();
 			}

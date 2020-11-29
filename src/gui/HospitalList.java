@@ -28,6 +28,7 @@ public class HospitalList {
 	private String id;
 	private ArrayList<JPanel> panelList = new ArrayList<JPanel>();
 	private BackgroundPanel backgroundPanel;
+	private ImagePanel hospitalListPanel;
 	
 	public HospitalList(BackgroundPanel backgroundPanel, String id) {
 		this.backgroundPanel = backgroundPanel;
@@ -35,7 +36,7 @@ public class HospitalList {
 	}
 	
 	void hospitalListGUI() {
-		ImagePanel hospitalListPanel = backgroundPanel.background("병원리스트");
+		hospitalListPanel = backgroundPanel.background("병원리스트");
 		hospitalListPanel.setVisible(true);
 
 		whitePanel = new WhitePanel();
@@ -175,7 +176,8 @@ public class HospitalList {
 	private void selectedHospital(JPanel hospitalPanel, BackgroundPanel backgroundPanel) {
 		hospitalPanel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
-				hospitalPanel.setVisible(false);
+				hospitalListPanel.setVisible(false);
+
 				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel, id);
 				hospitalViewDetail.hospitalViewDetailGUI();
 		    }

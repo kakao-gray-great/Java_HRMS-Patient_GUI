@@ -18,6 +18,7 @@ public class HospitalViewDetail {
 	private WhitePanel whitePanel;
 	private BackgroundPanel backgroundPanel;
 	private String id;
+	private ImagePanel hospitalViewDetailPanel;
 	
 	public HospitalViewDetail(BackgroundPanel backgroundPanel, String id) {
 		this.backgroundPanel = backgroundPanel;
@@ -25,12 +26,12 @@ public class HospitalViewDetail {
 	}
 	
 	void hospitalViewDetailGUI() {
-		ImagePanel hospitalViewDetailPanel = backgroundPanel.background("병원 상세보기");
+		hospitalViewDetailPanel = backgroundPanel.background("병원 상세보기");
 		hospitalViewDetailPanel.setVisible(true);
 
 		whitePanel = new WhitePanel();
 		JPanel hospitalViewDetailWhitePanel = whitePanel.whiteBackGround(hospitalViewDetailPanel);
-		
+	
 		JLabel hospitalNameLabel = new JLabel("연세내과의원");
 		hospitalNameLabel.setFont(new Font("맑은 고딕", Font.BOLD, 23));
 		hospitalNameLabel.setBounds(55, 175, 232, 40);
@@ -139,7 +140,6 @@ public class HospitalViewDetail {
 		timeInfo6.setFont(new Font("맑은 고딕", Font.BOLD, 20));
 		timeInfo6.setBounds(10, 375, 430, 25);
 		hospitalTimePanel.add(timeInfo6);
-		
 		
 		lowerButton = new LowerButton(backgroundPanel);
 		lowerButton.buttons(hospitalViewDetailPanel, id);

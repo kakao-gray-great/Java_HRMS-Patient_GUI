@@ -1,16 +1,24 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class ReservationList {
+	private static final ImageIcon bookingIcon = new ImageIcon(PatientApplication.PATH + "booking.png");
+	private static final ImageIcon cancelIcon = new ImageIcon(PatientApplication.PATH + "cancel.png");
+	private static final ImageIcon completeIcon = new ImageIcon(PatientApplication.PATH + "complete.png");
 	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
 	private String id;
-	
+	private ImagePanel reservationListPanel;
 	public ReservationList(BackgroundPanel backgroundPanel, String id) {
 		// TODO Auto-generated constructor stub
 		this.backgroundPanel = backgroundPanel;
@@ -18,16 +26,11 @@ public class ReservationList {
 	}
 
 	void reservationListGUI() {
-		ImagePanel reservationListPanel = backgroundPanel.background("¿¹¾à¸ñ·Ï");
+		reservationListPanel = backgroundPanel.background("¿¹¾à ¸ñ·Ï");
 		reservationListPanel.setVisible(true);
 		
 		whitePanel = new WhitePanel();
 		JPanel reservationListWhitePanel = whitePanel.whiteBackGround(reservationListPanel);
-		
-		JLabel reservationList = new JLabel("\uC608\uC57D \uD604\uD669");
-		reservationList.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 20));
-		reservationList.setBounds(23, 27, 96, 40);
-		reservationListWhitePanel.add(reservationList);
 		
 		JLabel patientIdLabel = new JLabel("arinlove");
 		patientIdLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 27));
@@ -39,37 +42,51 @@ public class ReservationList {
 		patientIdDesLabel.setBounds(169, 108, 301, 46);
 		reservationListPanel.add(patientIdDesLabel);
 		
-		JPanel reservationStatusPanel_1 = new JPanel();
-		reservationStatusPanel_1.setBounds(23, 69, 457, 109);
-		reservationListWhitePanel.add(reservationStatusPanel_1);
-		reservationStatusPanel_1.setLayout(null);
+		JPanel reservationInfomationLabel_1 = new JPanel();
+		reservationInfomationLabel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
+		reservationInfomationLabel_1.setBackground(Color.WHITE);
+		reservationInfomationLabel_1.setBounds(12, 10, 480, 115);
+		reservationListWhitePanel.add(reservationInfomationLabel_1);
+		reservationInfomationLabel_1.setLayout(null);
 		
-		JLabel hospitalNameLabel = new JLabel("\uC5F0\uC138\uB0B4\uACFC\uC758\uC6D0");
-		hospitalNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 19));
-		hospitalNameLabel.setBounds(12, 10, 142, 35);
-		reservationStatusPanel_1.add(hospitalNameLabel);
-		
-		JLabel hospitalLocationLabel = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC1A1\uC6D0\uB85C 81");
-		hospitalLocationLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 11));
-		hospitalLocationLabel.setBounds(12, 45, 196, 26);
-		reservationStatusPanel_1.add(hospitalLocationLabel);
-		
-		JLabel hospistalSubjectLabel = new JLabel("\uB0B4\uACFC");
-		hospistalSubjectLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 11));
-		hospistalSubjectLabel.setBounds(12, 81, 87, 18);
-		reservationStatusPanel_1.add(hospistalSubjectLabel);
-		
-		JLabel reservationDateLabel = new JLabel("2020-11-16");
-		reservationDateLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		reservationDateLabel.setBounds(335, 73, 70, 26);
-		reservationStatusPanel_1.add(reservationDateLabel);
-		
-		JLabel reservationTimeLabel = new JLabel("11:00");
-		reservationTimeLabel.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		reservationTimeLabel.setBounds(404, 73, 41, 26);
-		reservationStatusPanel_1.add(reservationTimeLabel);
+		reservationPanelContent(reservationListPanel, reservationInfomationLabel_1, "¼ö¿øº´¿ø", "°æ±âµµ ¼ö¿ø½Ã Àå¾È±¸ ¿¬¹«µ¿", "³»°ú", completeIcon);
 		
 		lowerButton = new LowerButton(backgroundPanel);
 		lowerButton.buttons(reservationListPanel, id);
+	}
+	
+	private void reservationPanelContent(JPanel mainPanel, JPanel panel, String hospitalName, String hospitalAddress, String subject, ImageIcon statusIcon) {
+		JLabel hospitalNameLabel = new JLabel(hospitalName);
+		hospitalNameLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
+		hospitalNameLabel.setBounds(12, 10, 230, 35);
+		panel.add(hospitalNameLabel);
+		
+		JLabel hospitalLocationPanel = new JLabel(hospitalAddress);
+		hospitalLocationPanel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalLocationPanel.setBounds(12, 41, 198, 26);
+		panel.add(hospitalLocationPanel);
+		
+		JLabel hospitalSubjectLabel = new JLabel(subject);
+		hospitalSubjectLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalSubjectLabel.setBounds(12, 77, 69, 28);
+		panel.add(hospitalSubjectLabel);
+		
+		JLabel hospitalStatusLabel = new JLabel("");
+		hospitalStatusLabel.setIcon(statusIcon);
+		hospitalStatusLabel.setBounds(406, 0, 73, 114);
+		panel.add(hospitalStatusLabel);
+		
+		selectedHospital(mainPanel, backgroundPanel);
+	}
+	
+	private void selectedHospital(JPanel reservationPanel, BackgroundPanel backgroundPanel) {
+		reservationPanel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent me) {
+				reservationListPanel.setVisible(false);
+
+				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel, id);
+				hospitalViewDetail.hospitalViewDetailGUI();
+		    }
+		});
 	}
 }

@@ -943,6 +943,8 @@ public class PatientGUI {
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
 		
 //		loginGUI();
 //		signUpGUI();
@@ -951,7 +953,7 @@ public class PatientGUI {
 //		hospitalListGUI();
 //		hospitalViewDetailGUI();
 //		selfDiagnosisGUI();
-		reservationReceiptGUI();
+//		reservationReceiptGUI();
 //		reservationInformationGUI();
 //		reservationListGUI();
 
@@ -998,6 +1000,16 @@ public class PatientGUI {
 		titleSmallLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
 		titleSmallLabel.setBounds(12, 10, 57, 15);
 		backgroundPanel.add(titleSmallLabel);
+		
+		JButton backButton = new JButton("");
+		backButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\backButton.png"));
+		backButton.setBounds(481, 8, 47, 46);
+		backgroundPanel.add(backButton);
+		
+		JButton refreshButton = new JButton("");
+		refreshButton.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\refresh_test1.png"));
+		refreshButton.setBounds(426, 8, 47, 46);
+		backgroundPanel.add(refreshButton);
 
 		return backgroundPanel;
 	}
