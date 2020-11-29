@@ -99,22 +99,22 @@ public class SignUp {
 		backGround.add(phoneNumberField);
 		
 		JButton cancel = new JButton("");
-		cancel.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\cancelIcon.png"));
+		cancel.setIcon(new ImageIcon(PatientApplication.PATH + "cancelIcon.png"));
 		cancel.setForeground(Color.BLACK);
 		cancel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 30));
 		cancel.setBounds(40, 485, 162, 42);
 		backGround.add(cancel);
 		
 		JButton signin = new JButton("");
-		signin.setIcon(new ImageIcon("D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\signupIcon.png"));
+		signin.setIcon(new ImageIcon(PatientApplication.PATH + "signupIcon.png"));
 		signin.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 30));
 		signin.setBounds(278, 485, 162, 42);
 		backGround.add(signin);
 		
 		backGround.add(ID);
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(signupPanel);
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(signupPanel, "");
 	}
 	
 }

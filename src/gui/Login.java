@@ -16,7 +16,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Login {
-	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private LowerButton lowerButton;
 	private String id;
 	private String passwd;
@@ -36,12 +35,12 @@ public class Login {
 		idTextField.setColumns(10);
 		
 		JLabel idIconLabel = new JLabel("");
-		idIconLabel.setIcon(new ImageIcon(PATH + "login_ID.png"));
+		idIconLabel.setIcon(new ImageIcon(PatientApplication.PATH + "login_ID.png"));
 		idIconLabel.setBounds(40, 395, 74, 68);
 		loginPanel.add(idIconLabel);
 		
 		JLabel passwdIconLabel = new JLabel("");
-		passwdIconLabel.setIcon(new ImageIcon(PATH + "login_passwd.png"));
+		passwdIconLabel.setIcon(new ImageIcon(PatientApplication.PATH + "login_passwd.png"));
 		passwdIconLabel.setBounds(40, 497, 74, 68);
 		loginPanel.add(passwdIconLabel);
 		
@@ -50,9 +49,9 @@ public class Login {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		loginButton.setIcon(new ImageIcon(PATH + "loginButton2.png"));
+		loginButton.setIcon(new ImageIcon(PatientApplication.PATH + "loginButton2.png"));
 		loginButton.setBounds(343, 589, 140, 60);
-		loginButton.setPressedIcon(new ImageIcon(PATH + "loginButton_click.png"));
+		loginButton.setPressedIcon(new ImageIcon(PatientApplication.PATH + "loginButton_click.png"));
 		loginPanel.add(loginButton);
 		
 		JPasswordField passwdTextField = new JPasswordField();

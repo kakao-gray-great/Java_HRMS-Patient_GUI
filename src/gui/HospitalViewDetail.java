@@ -14,7 +14,6 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 public class HospitalViewDetail {
-	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
 	private BackgroundPanel backgroundPanel;
@@ -40,7 +39,7 @@ public class HospitalViewDetail {
 		JButton reservationButton = new JButton("");
 		reservationButton.setBounds(363, 175, 119, 40);
 		hospitalViewDetailPanel.add(reservationButton);
-		reservationButton.setIcon(new ImageIcon(PATH + "reservationSmallIcon.png"));
+		reservationButton.setIcon(new ImageIcon(PatientApplication.PATH + "reservationSmallIcon.png"));
 		
 		reservationButton.addActionListener(new ActionListener() {
 			

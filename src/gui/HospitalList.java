@@ -19,10 +19,9 @@ import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 
 public class HospitalList {
-	private static final String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
-	private static final ImageIcon openIcon = new ImageIcon(PATH + "openIcon.png");
-	private static final ImageIcon lunchIcon = new ImageIcon(PATH + "lunchIcon.png");
-	private static final ImageIcon closeIcon = new ImageIcon(PATH + "closeIcon.png");
+	private static final ImageIcon openIcon = new ImageIcon(PatientApplication.PATH + "openIcon.png");
+	private static final ImageIcon lunchIcon = new ImageIcon(PatientApplication.PATH + "lunchIcon.png");
+	private static final ImageIcon closeIcon = new ImageIcon(PatientApplication.PATH + "closeIcon.png");
 	
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
@@ -55,7 +54,7 @@ public class HospitalList {
 		hospitalListPanel.add(diagnosisComboBox);
 		
 		JLabel locationIconLabel = new JLabel("");
-		locationIconLabel.setIcon(new ImageIcon(PATH + "locationIcon.png"));
+		locationIconLabel.setIcon(new ImageIcon(PatientApplication.PATH + "locationIcon.png"));
 		locationIconLabel.setBounds(12, 80, 39, 39);
 		hospitalListPanel.add(locationIconLabel);
 		
@@ -65,18 +64,18 @@ public class HospitalList {
 		hospitalSearchTextField.setColumns(10);
 		
 		JButton hospitalSearchButton = new JButton("");
-		hospitalSearchButton.setIcon(new ImageIcon(PATH + "searchLocationIcon.png"));
+		hospitalSearchButton.setIcon(new ImageIcon(PatientApplication.PATH + "searchLocationIcon.png"));
 		hospitalSearchButton.setBounds(22, 118, 57, 38);
 		hospitalListPanel.add(hospitalSearchButton);
 		
 		JToggleButton salesToggleButton = new JToggleButton("");
-		salesToggleButton.setIcon(new ImageIcon(PATH + "salesToggleButtonLabel.png"));
+		salesToggleButton.setIcon(new ImageIcon(PatientApplication.PATH + "salesToggleButtonLabel.png"));
 		salesToggleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (((JToggleButton)e.getSource()).isSelected()) {
-					salesToggleButton.setIcon(new ImageIcon(PATH + "salesToggleButtonLabel_click.png"));
+					salesToggleButton.setIcon(new ImageIcon(PatientApplication.PATH + "salesToggleButtonLabel_click.png"));
 				} else {
-					salesToggleButton.setIcon(new ImageIcon(PATH + "salesToggleButtonLabel.png"));
+					salesToggleButton.setIcon(new ImageIcon(PatientApplication.PATH + "salesToggleButtonLabel.png"));
 				}
 			}
 		});

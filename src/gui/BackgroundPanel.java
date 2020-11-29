@@ -9,12 +9,10 @@ import javax.swing.SwingConstants;
 
 public class BackgroundPanel {
 	private ImagePanel background;
-	private String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private JFrame frame = new JFrame();
-
+	
 	ImagePanel background(String title) {
-		background = new ImagePanel(new ImageIcon(PATH + "login_background.png").getImage());
-		
+		background = new ImagePanel(new ImageIcon(PatientApplication.PATH + "login_background.png").getImage());
 		background.setBounds(0, 0, 540, 879);
 		frame.setSize(background.getWidth() + 16, background.getHeight());
 		frame.getContentPane().setLayout(null);

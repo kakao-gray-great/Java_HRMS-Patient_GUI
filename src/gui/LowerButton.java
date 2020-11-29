@@ -7,7 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class LowerButton {
-	private String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private BackgroundPanel backgroundPanel;
 	
 	
@@ -22,7 +21,7 @@ public class LowerButton {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		hospitalLowerButton.setIcon(new ImageIcon(PATH + "loginHospitalButton.png"));
+		hospitalLowerButton.setIcon(new ImageIcon(PatientApplication.PATH + "loginHospitalButton.png"));
 		hospitalLowerButton.setBounds(0, 787, 176, 92);
 		hospitalLowerButton.addActionListener(new ActionListener() {
 
@@ -37,7 +36,7 @@ public class LowerButton {
 		imagePanel.add(hospitalLowerButton);
 
 		JButton reservationLowerButton = new JButton("\"new Button\"");
-		reservationLowerButton.setIcon(new ImageIcon(PATH + "loginReservationButton.png"));
+		reservationLowerButton.setIcon(new ImageIcon(PatientApplication.PATH + "loginReservationButton.png"));
 		reservationLowerButton.setBounds(176, 787, 178, 92);
 		reservationLowerButton.addActionListener(new ActionListener() {
 			@Override
@@ -51,7 +50,7 @@ public class LowerButton {
 		imagePanel.add(reservationLowerButton);
 
 		JButton informationLowerButton = new JButton("\"new Button\"");
-		informationLowerButton.setIcon(new ImageIcon(PATH + "loginInformationButton1.png"));
+		informationLowerButton.setIcon(new ImageIcon(PatientApplication.PATH + "loginInformationButton1.png"));
 		informationLowerButton.setBounds(354, 787, 176, 92);
 		informationLowerButton.addActionListener(new ActionListener() {
 			@Override

@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 public class ReservationReceipt {
-	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
@@ -35,7 +34,7 @@ public class ReservationReceipt {
 		reservationReceiptPanel.add(hospitalNameLabel);
 		
 		JButton backListButton = new JButton("");
-		backListButton.setIcon(new ImageIcon(PATH + "backListIcon.png"));
+		backListButton.setIcon(new ImageIcon(PatientApplication.PATH + "backListIcon.png"));
 		backListButton.setBounds(391, 116, 115, 30);
 		reservationReceiptPanel.add(backListButton);
 		
@@ -126,7 +125,7 @@ public class ReservationReceipt {
 				reservationInformation.reservationInformationGUI();
 			}
 		});
-		reservationButton.setIcon(new ImageIcon(PATH + "reservationIcon.png"));
+		reservationButton.setIcon(new ImageIcon(PatientApplication.PATH + "reservationIcon.png"));
 		reservationButton.setBounds(12, 501, 481, 46);
 		reservationPanel.add(reservationButton);
 		
