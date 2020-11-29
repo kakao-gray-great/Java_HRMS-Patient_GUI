@@ -131,7 +131,7 @@ public class ReservationReceipt {
 		reservationButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				/**데이터 전송**/
-				reservationReceiptPanel.setVisible(false);
+				reservationReceiptPanel.setVisible(true);
 				ReservationInformation reservationInformation = new ReservationInformation(backgroundPanel, id);
 				reservationInformation.popUpReservationInfomration();
 			}
