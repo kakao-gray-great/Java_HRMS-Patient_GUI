@@ -3,6 +3,8 @@ package gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,9 +18,11 @@ public class HospitalViewDetail {
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
 	private BackgroundPanel backgroundPanel;
+	private String id;
 	
-	public HospitalViewDetail(BackgroundPanel backgroundPanel) {
+	public HospitalViewDetail(BackgroundPanel backgroundPanel, String id) {
 		this.backgroundPanel = backgroundPanel;
+		this.id = id;
 	}
 	
 	void hospitalViewDetailGUI() {
@@ -37,6 +41,17 @@ public class HospitalViewDetail {
 		reservationButton.setBounds(363, 175, 119, 40);
 		hospitalViewDetailPanel.add(reservationButton);
 		reservationButton.setIcon(new ImageIcon(PATH + "reservationSmallIcon.png"));
+		
+		reservationButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				hospitalViewDetailPanel.setVisible(false);
+				ReservationReceipt reservationReceipt = new ReservationReceipt(backgroundPanel, id);
+				reservationReceipt.reservationReceiptGUI();
+			}
+		});
 		
 		JLabel lastVisitLabel = new JLabel("\uCD5C\uADFC \uBC29\uBB38");
 		lastVisitLabel.setBounds(20,10,79,35);
@@ -127,8 +142,8 @@ public class HospitalViewDetail {
 		hospitalTimePanel.add(timeInfo6);
 		
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(hospitalViewDetailPanel);
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(hospitalViewDetailPanel, id);
 	}
 
 }

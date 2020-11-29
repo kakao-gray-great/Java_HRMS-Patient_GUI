@@ -9,9 +9,15 @@ public class ReservationList {
 	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String id;
 	
+	public ReservationList(BackgroundPanel backgroundPanel, String id) {
+		// TODO Auto-generated constructor stub
+		this.backgroundPanel = backgroundPanel;
+		this.id = id;
+	}
+
 	void reservationListGUI() {
-		backgroundPanel = new BackgroundPanel();
 		ImagePanel reservationListPanel = backgroundPanel.background("예약목록");
 		reservationListPanel.setVisible(true);
 		
@@ -63,12 +69,7 @@ public class ReservationList {
 		reservationTimeLabel.setBounds(404, 73, 41, 26);
 		reservationStatusPanel_1.add(reservationTimeLabel);
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(reservationListPanel);
-	}
-	
-	public static void main(String[] args) {
-		ReservationList reservationList = new ReservationList();
-		reservationList.reservationListGUI();
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(reservationListPanel, id);
 	}
 }

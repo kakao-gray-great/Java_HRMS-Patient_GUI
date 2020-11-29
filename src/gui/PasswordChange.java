@@ -12,9 +12,14 @@ public class PasswordChange {
 	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String id;
 	
+	public PasswordChange(BackgroundPanel backgroundPanel, String id) {
+		this.backgroundPanel = backgroundPanel;
+		this.id = id;
+	}
+
 	void passwordChangeGUI() {
-		backgroundPanel = new BackgroundPanel();
 		ImagePanel passwordChangePanel = backgroundPanel.background("비밀번호변경");
 		passwordChangePanel.setVisible(true);
 
@@ -63,12 +68,7 @@ public class PasswordChange {
 		changeBt.setBounds(278, 400, 162, 42);
 		passwordChangeWhitePanel.add(changeBt);
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(passwordChangePanel);
-	}
-	
-	public static void main(String[] args) {
-		PasswordChange passwordChange = new PasswordChange();
-		passwordChange.passwordChangeGUI();
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(passwordChangePanel, id);
 	}
 }

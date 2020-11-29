@@ -26,7 +26,7 @@ public class HospitalList {
 	
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
-	private String id = "";
+	private String id;
 	private ArrayList<JPanel> panelList = new ArrayList<JPanel>();
 	private BackgroundPanel backgroundPanel;
 	
@@ -177,7 +177,7 @@ public class HospitalList {
 		hospitalPanel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
 				hospitalPanel.setVisible(false);
-				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel);
+				HospitalViewDetail hospitalViewDetail = new HospitalViewDetail(backgroundPanel, id);
 				hospitalViewDetail.hospitalViewDetailGUI();
 		    }
 		});

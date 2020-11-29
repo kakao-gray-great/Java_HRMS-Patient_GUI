@@ -683,59 +683,36 @@ public class PatientGUI {
 		reservationPanel.add(selectedYearComboBox);
 		
 		JComboBox selectedMonthComboBox = new JComboBox();
-		selectedMonthComboBox.setBounds(139, 70, 97, 41);
+		selectedMonthComboBox.setBounds(140, 70, 97, 41);
 		selectedMonthComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
 		selectedMonthComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
 		reservationPanel.add(selectedMonthComboBox);
 		
 		JComboBox selectedDayComboBox = new JComboBox();
-		selectedDayComboBox.setBounds(265, 70, 97, 41);
+		selectedDayComboBox.setBounds(269, 70, 97, 41);
 		selectedDayComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
 		selectedDayComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
 		reservationPanel.add(selectedDayComboBox);
 		
-		JLabel seletedTimeLabel = new JLabel("\uC2DC\uAC04\uC744 \uC120\uD0DD\uD558\uC138\uC694");
-		seletedTimeLabel.setBounds(12, 141, 159, 36);
-		seletedTimeLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
-		reservationPanel.add(seletedTimeLabel);
-		
 		JComboBox selectedTimeComboBox = new JComboBox();
-		selectedTimeComboBox.setBounds(12, 187, 205, 41);
+		selectedTimeComboBox.setBounds(396, 70, 97, 41);
 		selectedTimeComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
 		selectedTimeComboBox.setModel(new DefaultComboBoxModel(new String[] {"10:00", "10:30", "11:00"}));
 		reservationPanel.add(selectedTimeComboBox);
 		
 		JLabel selectedSubjectLabel = new JLabel("\uC9C4\uB8CC\uACFC\uBAA9\uC744 \uC120\uD0DD\uD574\uC8FC\uC138\uC694");
-		selectedSubjectLabel.setBounds(12, 264, 224, 36);
+		selectedSubjectLabel.setBounds(12, 154, 224, 36);
 		selectedSubjectLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		reservationPanel.add(selectedSubjectLabel);
 		
 		JComboBox selectedSubjectComboBox = new JComboBox();
-		selectedSubjectComboBox.setBounds(12, 310, 205, 41);
+		selectedSubjectComboBox.setBounds(12, 200, 205, 41);
 		selectedSubjectComboBox.setModel(new DefaultComboBoxModel(new String[] {"\uB0B4\uACFC"}));
 		selectedSubjectComboBox.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 19));
 		reservationPanel.add(selectedSubjectComboBox);
 		
-		JComboBox selectedYearSymptomComboBox = new JComboBox();
-		selectedYearSymptomComboBox.setBounds(12, 432, 97, 41);
-		selectedYearSymptomComboBox.setModel(new DefaultComboBoxModel(new String[] {"2020"}));
-		selectedYearSymptomComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
-		reservationPanel.add(selectedYearSymptomComboBox);
-		
-		JComboBox selectedMonthSymptomComboBox = new JComboBox();
-		selectedMonthSymptomComboBox.setBounds(139, 432, 97, 41);
-		selectedMonthSymptomComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"}));
-		selectedMonthSymptomComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
-		reservationPanel.add(selectedMonthSymptomComboBox);
-		
-		JComboBox selectedDaySymptomComboBox = new JComboBox();
-		selectedDaySymptomComboBox.setBounds(265, 432, 97, 41);
-		selectedDaySymptomComboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
-		selectedDaySymptomComboBox.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 19));
-		reservationPanel.add(selectedDaySymptomComboBox);
-		
-		JLabel selectedSymptomLabel = new JLabel("\uC99D\uC0C1\uC774 \uC5B8\uC81C\uBD80\uD130 \uB098\uD0C0\uB0AC\uB098\uC694");
-		selectedSymptomLabel.setBounds(12, 390, 241, 36);
+		JLabel selectedSymptomLabel = new JLabel("\uC99D\uC0C1\uC744 \uCCB4\uD06C\uD574\uC8FC\uC138\uC694.");
+		selectedSymptomLabel.setBounds(12, 288, 185, 36);
 		selectedSymptomLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 18));
 		reservationPanel.add(selectedSymptomLabel);
 		
@@ -972,9 +949,9 @@ public class PatientGUI {
 //		patientInformationGUI();
 //		passwordChangeGUI();
 //		hospitalListGUI();
-		hospitalViewDetailGUI();
+//		hospitalViewDetailGUI();
 //		selfDiagnosisGUI();
-//		reservationReceiptGUI();
+		reservationReceiptGUI();
 //		reservationInformationGUI();
 //		reservationListGUI();
 
@@ -1032,6 +1009,36 @@ public class PatientGUI {
 		whitePanel.setBounds(12, 221, 505, 557);
 		mainPanel.add(whitePanel);
 		whitePanel.setLayout(null);
+		
+		JToggleButton selectSymptomToggleButton_1 = new JToggleButton("");
+		selectSymptomToggleButton_1.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_1.setBounds(35, 332, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_1);
+		
+		JToggleButton selectSymptomToggleButton_2 = new JToggleButton("");
+		selectSymptomToggleButton_2.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_2.setBounds(194, 332, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_2);
+		
+		JToggleButton selectSymptomToggleButton_3 = new JToggleButton("");
+		selectSymptomToggleButton_3.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_3.setBounds(350, 332, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_3);
+		
+		JToggleButton selectSymptomToggleButton_6 = new JToggleButton("");
+		selectSymptomToggleButton_6.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_6.setBounds(350, 412, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_6);
+		
+		JToggleButton selectSymptomToggleButton_5 = new JToggleButton("");
+		selectSymptomToggleButton_5.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_5.setBounds(194, 412, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_5);
+		
+		JToggleButton selectSymptomToggleButton_4 = new JToggleButton("");
+		selectSymptomToggleButton_4.setBackground(new Color(102, 102, 102));
+		selectSymptomToggleButton_4.setBounds(35, 412, 122, 52);
+		whitePanel.add(selectSymptomToggleButton_4);
 		
 		return whitePanel;
 	}

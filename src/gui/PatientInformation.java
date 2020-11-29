@@ -15,15 +15,18 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 public class PatientInformation {
+	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String id = "";
 	private String patientName = "";
 	
-	public PatientInformation(String patientName) {
-		this.patientName = patientName;
+	public PatientInformation(BackgroundPanel backgroundPanel, String id) {
+		this.backgroundPanel = backgroundPanel;
+		this.id = id;
 	}
 	
-	public void patientInformationPanelGUI(BackgroundPanel backgroundPanel) {
+	public void patientInformationPanelGUI() {
 		ImagePanel patientInformationPanel = backgroundPanel.background("∞≥¿Œ¡§∫∏");
 		patientInformationPanel.setVisible(true);
 		
@@ -76,6 +79,9 @@ public class PatientInformation {
 		btnNewButton.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 23));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				patientInformationPanel.setVisible(false);
+				PasswordChange passwordChange = new PasswordChange(backgroundPanel, id);
+				passwordChange.passwordChangeGUI();
 			}
 		});
 		btnNewButton.setForeground(Color.BLACK);
@@ -90,8 +96,8 @@ public class PatientInformation {
 		button.setBounds(12, 113, 261, 49);
 		patientInformationUpdatePanel.add(button);
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(patientInformationPanel);
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(patientInformationPanel, id);
 	}
 
 }

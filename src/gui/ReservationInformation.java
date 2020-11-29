@@ -9,10 +9,15 @@ public class ReservationInformation {
 	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String id;
+	
+	public ReservationInformation(BackgroundPanel backgroundPanel, String id) {
+		this.backgroundPanel = backgroundPanel;
+		this.id = id;
+	}
 	
 	void reservationInformationGUI() {
 		
-		backgroundPanel = new BackgroundPanel();
 		ImagePanel reservationInfomationPanel = backgroundPanel.background("예약정보");
 		reservationInfomationPanel.setVisible(true);
 		
@@ -54,12 +59,7 @@ public class ReservationInformation {
 		inputAddressLabel.setBounds(121, 139, 372, 47);
 		reservationInfomationWhitePanel.add(inputAddressLabel);
 		
-		lowerButton = new LowerButton();
-		lowerButton.buttons(reservationInfomationPanel);
-	}
-	
-	public static void main(String[] args) {
-		ReservationInformation reservationInformation = new ReservationInformation();
-		reservationInformation.reservationInformationGUI();
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(reservationInfomationPanel, id);
 	}
 }
