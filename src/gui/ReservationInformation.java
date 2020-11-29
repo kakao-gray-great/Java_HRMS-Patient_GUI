@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class ReservationInformation extends JFrame{
+public class ReservationInformation extends JFrame {
 	private String id;
 	
 	public ReservationInformation(BackgroundPanel backgroundPanel, String id) {
@@ -20,6 +20,7 @@ public class ReservationInformation extends JFrame{
 		setBounds(100, 100, 335, 372);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JPanel popUpPanel = new JPanel();
 		popUpPanel.setBackground(new Color(0, 204, 255));

@@ -41,10 +41,7 @@ public class TestGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 335, 372);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		
 		
 		JPanel popUpPanel = new JPanel();
 		popUpPanel.setBackground(new Color(0, 204, 255));
