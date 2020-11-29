@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 public class Login {
 	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
 	private LowerButton lowerButton;
+	private String id;
+	private String passwd;
 	
 	void loginGUI(BackgroundPanel backgroundPanel) {
 		ImagePanel loginPanel = backgroundPanel.background("환영합니다");
@@ -68,13 +70,11 @@ public class Login {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				String id = "abc";
-				String passwd = "abc";
+				id = "abc";
+				passwd = "abc";
 				if (id.equals(idTextField.getText()) && Arrays.equals(passwdTextField.getPassword(), passwd.toCharArray())) {
 					JOptionPane.showMessageDialog(null, "You have logged in successfully");
 					loginPanel.setVisible(false);
-//					PatientInformation patientInformation = new PatientInformation(id);
-//					patientInformation.patientInformationPanelGUI(backgroundPanel);
 					HospitalList hospitalList = new HospitalList(backgroundPanel, id);
 					hospitalList.hospitalListGUI();
 				} else {
@@ -90,8 +90,8 @@ public class Login {
 				signUp.signUpGUI(backgroundPanel);
 		    }
 		});
-		lowerButton = new LowerButton();
-		lowerButton.buttons(loginPanel);
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(loginPanel, id);
 	}
 	
 }
