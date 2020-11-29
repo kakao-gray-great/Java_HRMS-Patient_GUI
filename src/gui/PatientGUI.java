@@ -438,6 +438,8 @@ public class PatientGUI {
 		hospitalInfoPanel_4.setBounds(12, 385, 480, 115);
 		hospitalListTablePanel.add(hospitalInfoPanel_4);
 		
+
+		
 		JButton pagingButton_1 = new JButton("1");
 		pagingButton_1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 16));
 		pagingButton_1.setBounds(136, 506, 45, 45);
@@ -483,11 +485,26 @@ public class PatientGUI {
 		JLabel hospitalStatusLabel_2 = new JLabel("");
 		hospitalStatusLabel_2.setBounds(406, 0, 73, 114);
 		hospitalInfoPanel_2.add(hospitalStatusLabel_2);
+		hospitalInfoPanel_4.setLayout(null);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setIcon(new ImageIcon(PATH + "lunchIcon.png"));
-		label_4.setBounds(406, 0, 73, 114);
-		hospitalInfoPanel_2.add(label_4);
+		JLabel hospitalLocationPanel_4 = new JLabel("\uACBD\uAE30\uB3C4 \uC218\uC6D0\uC2DC \uC7A5\uC548\uAD6C \uC11C\uBD80\uB85C 2112 \uC8FC\uBA54\uB514\uCE7C\uBE4C\uB529 2\uCE35");
+		hospitalLocationPanel_4.setBounds(12, 39, 285, 17);
+		hospitalLocationPanel_4.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalInfoPanel_4.add(hospitalLocationPanel_4);
+		
+		JLabel hospitalNameLabel_4 = new JLabel("\uC8FC\uB0B4\uACFC\uC758\uC6D0");
+		hospitalNameLabel_4.setBounds(12, 12, 110, 30);
+		hospitalNameLabel_4.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 22));
+		hospitalInfoPanel_4.add(hospitalNameLabel_4);
+		
+		JLabel hospitalSubjectLabel_4 = new JLabel("\uB0B4\uACFC");
+		hospitalSubjectLabel_4.setBounds(22, 62, 24, 17);
+		hospitalSubjectLabel_4.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 12));
+		hospitalInfoPanel_4.add(hospitalSubjectLabel_4);
+		
+		JLabel hospitalStatusLabel_4 = new JLabel("");
+		hospitalStatusLabel_4.setBounds(457, 21, 0, 0);
+		hospitalInfoPanel_4.add(hospitalStatusLabel_4);
 		
 		JPanel hospitalInfoPanel_3 = new JPanel();
 		hospitalInfoPanel_3.setLayout(null);
@@ -950,12 +967,12 @@ public class PatientGUI {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		loginGUI();
+//		loginGUI();
 //		signUpGUI();
 //		patientInformationGUI();
 //		passwordChangeGUI();
 //		hospitalListGUI();
-//		hospitalViewDetailGUI();
+		hospitalViewDetailGUI();
 //		selfDiagnosisGUI();
 //		reservationReceiptGUI();
 //		reservationInformationGUI();

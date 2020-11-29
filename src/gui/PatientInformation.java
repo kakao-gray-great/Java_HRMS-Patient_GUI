@@ -15,19 +15,22 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 public class PatientInformation {
-	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private String patientName = "";
 	
-	void patientInformationPanelGUI() {
-		backgroundPanel = new BackgroundPanel();
+	public PatientInformation(String patientName) {
+		this.patientName = patientName;
+	}
+	
+	public void patientInformationPanelGUI(BackgroundPanel backgroundPanel) {
 		ImagePanel patientInformationPanel = backgroundPanel.background("개인정보");
 		patientInformationPanel.setVisible(true);
 		
 		whitePanel = new WhitePanel();
 		JPanel patientInformationWhitePanel = whitePanel.whiteBackGround(patientInformationPanel);
 		
-		JLabel patientIdLabel = new JLabel("arinlove");
+		JLabel patientIdLabel = new JLabel(patientName);
 		patientIdLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		patientIdLabel.setFont(new Font("Dialog", Font.BOLD, 33));
 		patientIdLabel.setBounds(133, 168, 255, 48);
@@ -90,9 +93,5 @@ public class PatientInformation {
 		lowerButton = new LowerButton();
 		lowerButton.buttons(patientInformationPanel);
 	}
-	
-	public static void main(String[] args) {
-		PatientInformation patientInformationPanel = new PatientInformation();
-		patientInformationPanel.patientInformationPanelGUI();
-	}
+
 }

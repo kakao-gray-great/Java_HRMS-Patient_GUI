@@ -13,12 +13,15 @@ import javax.swing.border.LineBorder;
 
 public class HospitalViewDetail {
 	private static String PATH = "D:\\Computer\\eclipse-workspace\\Java_HRMS-Patient_GUI\\image\\";
-	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
+	private BackgroundPanel backgroundPanel;
+	
+	public HospitalViewDetail(BackgroundPanel backgroundPanel) {
+		this.backgroundPanel = backgroundPanel;
+	}
 	
 	void hospitalViewDetailGUI() {
-		backgroundPanel = new BackgroundPanel();
 		ImagePanel hospitalViewDetailPanel = backgroundPanel.background("병원 상세보기");
 		hospitalViewDetailPanel.setVisible(true);
 
@@ -127,9 +130,5 @@ public class HospitalViewDetail {
 		lowerButton = new LowerButton();
 		lowerButton.buttons(hospitalViewDetailPanel);
 	}
-	
-	public static void main(String[] args) {
-		HospitalViewDetail hospitalViewDetail = new HospitalViewDetail();
-		hospitalViewDetail.hospitalViewDetailGUI();
-	}
+
 }

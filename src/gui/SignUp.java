@@ -11,11 +11,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class SignUp {
-	private BackgroundPanel backgroundPanel;
 	private LowerButton lowerButton;
 	
-	void signUpGUI() {
-		backgroundPanel = new BackgroundPanel();
+	void signUpGUI(BackgroundPanel backgroundPanel) {
 		ImagePanel signupPanel = backgroundPanel.background("회원가입");
 		signupPanel.setVisible(true);
 		
@@ -119,8 +117,4 @@ public class SignUp {
 		lowerButton.buttons(signupPanel);
 	}
 	
-	public static void main(String[] args) {
-		SignUp signUp = new SignUp();
-		signUp.signUpGUI();
-	}
 }
