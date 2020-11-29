@@ -26,13 +26,13 @@ public class HospitalList {
 	
 	private LowerButton lowerButton;
 	private WhitePanel whitePanel;
-	private String patientName = "";
+	private String id = "";
 	private ArrayList<JPanel> panelList = new ArrayList<JPanel>();
 	private BackgroundPanel backgroundPanel;
 	
-	public HospitalList(BackgroundPanel backgroundPanel, String patientName) {
+	public HospitalList(BackgroundPanel backgroundPanel, String id) {
 		this.backgroundPanel = backgroundPanel;
-		this.patientName = patientName;
+		this.id = id;
 	}
 	
 	void hospitalListGUI() {
@@ -145,6 +145,8 @@ public class HospitalList {
 		pagingButton_4.setBounds(307, 506, 45, 45);
 		hospitalListWhitePanel.add(pagingButton_4);
 		
+		lowerButton = new LowerButton(backgroundPanel);
+		lowerButton.buttons(hospitalListPanel, id);
 	}
 	
 	private void hospitalPanelContent(JPanel mainPanel, JPanel panel, String hospitalName, String hospitalAddress, String subject, ImageIcon statusIcon) {
